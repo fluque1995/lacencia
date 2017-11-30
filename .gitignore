@@ -1,0 +1,8 @@
+*.pdf
+*.aux
+*.out
+*.log
+*.toc
+*.tex~
+auto/
+.gitignore~
