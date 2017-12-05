@@ -135,9 +135,12 @@ optimización. Es sobre este tipo de estrategias sobre las que
 incidiremos durante el resto del trabajo. A modo de resumen, la
 programación evolutiva, que es este primer conjunto de estrategias de
 las que hablamos, fue descrita y desarrollada en un principio por
-Lawrence J. Fogel. Se basa en una población de soluciones que mutan
-para generar soluciones nuevas, las cuales entran en competencia con
-las antiguas, de forma que sobreviven sólo las mejores soluciones
+Lawrence J. Fogel. Aunque los primeros trabajos en los que se aplica
+esta técnica son de principios de los 60, hasta el 66 no publicó Fogel
+su artículo \textit{Artificial Intelligence Through Simulated
+  Evolution}.  Se basa en una población de soluciones que mutan para
+generar soluciones nuevas, las cuales entran en competencia con las
+antiguas, de forma que sobreviven sólo las mejores soluciones
 contempladas.\\
 
 Este enfoque resulta novedoso en el punto en el que ahora no se tiene
@@ -145,9 +148,63 @@ una única solución que se modifica para explorar el espacio de
 soluciones, si no que se tienen distintas soluciones repartidas, a
 priori aleatoriamente, por todo el espacio de búsqueda, evitándose así
 uno de los primeros problemas que se detectaron en algoritmos previos,
-que era el atasco del algoritmo en óptimos locales, que impedían encontrar
-soluciones mejores que se encontrasen a cierta distancia.\\
+que era el atasco del algoritmo en óptimos locales, que impedían
+encontrar soluciones mejores que se encontrasen a cierta distancia.\\
 
+Dentro de la rama de la computación evolutiva, aparecen en Berlín de
+forma prácticamente simultánea (con un par de años de diferencia) lo
+que se conocen como estrategias de evolución. Desarrolladas por
+Rechenberg y Schwefel, tienen un funcionamiento similar a la
+programación evolutiva, aunque con ciertas diferencias que
+concretaremos más adelante.\\
+
+Tras estas aproximaciones, aparece en Michigan en el año 1975 el
+paradigma más extendido dentro de la computación evolutiva. Se trata
+de los algoritmos genéticos, desarrollados y descritos por John H.
+Holland. En esta estrategia se introduce el concepto de cruce entre
+soluciones, en imitación al apareamiento entre especies animales.\\
+
+En años posteriores, a principios de los 80, aparecen nuevos modelos,
+que cambian el enfoque de los años anteriores, y empiezan a buscar
+otras inspiraciones en procesos físicos para crear metaheurísticas.
+Aparecen así ejemplos como \textit{Simulated annealing}, propuesto por
+S. Kirkpatrick en 1983, que mejora el comportamiento de las búsquedas
+locales introduciendo una probabilidad de avanzar hacia peores
+soluciones, para intentar salir de óptimos locales. Esta probabilidad
+va descendiendo a medida que avanza el algoritmo, de forma que al
+principio la probabilidad de empeorar la solución es alta, lo que
+aumenta la capacidad de exploración del espacio de soluciones del
+algoritmo, y al final es pequeña, para intentar refinar todo lo
+posible la buena solución encontrada. Este algoritmo imita el proceso
+de enfriamiento de los metales fundidos, y la creación de las
+estructuras cristalinas que se producen en el proceso. Cuando el metal
+está caliente, la probabilidad de que se rompan las conexiones entre
+las partículas del metal es más alta, llevando el material a un estado
+más inestable (metáfora con el desplazamiento a peores soluciones en
+primeras etapas del algoritmo), mientras que cuando se va enfriando,
+se van creando más enlaces, para llevar al material a un estado
+estable (búsqueda de mejores soluciones al final del algoritmo).\\
+
+A mediados de los 80, concretamente en 1986, aparece otro avance
+dentro del campo de las búsquedas locales. Fred W. Glover diseña la
+búsqueda tabú, que funciona de la misma forma que las búsquedas
+locales, pero permitiendo el avance hacia peores soluciones. Además,
+como novedad incorpora una lista de \textit{soluciones tabú}, que son
+soluciones evaluadas en las últimas iteraciones del algoritmo. Esta
+lista sirve para evitar que el algoritmo retroceda hacia soluciones
+anteriormente visitadas, de forma que no se pierdan iteraciones 
+del mismo sin sentido.\\
+
+Tras estos avances, se intenta ahora hibridar los algoritmos obtenidos
+hasta el momento para conseguir soluciones todavía mejores. Aparece
+entonces el concepto de algoritmo memético, propuesto por Pablo Moscato
+en el Instituto Tecnológico de Calfornia (Caltech) en 1989. Esta 
+metodología trata de unir los algoritmos genéticos con los algoritmos
+de búsqueda local. Consiste en ejecutar un algoritmo genético de los
+anteriormente explicados, y cada cierto número de generaciones (nombre
+con el que se conoce a las iteraciones de un algoritmo genético) aplicar
+una búsqueda local sobre ciertos individuos de la población, con el fin
+de mejorar la solución que representan.
 
 \section{Algoritmos genéticos}
 
