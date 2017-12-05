@@ -81,6 +81,50 @@ encontrar extremos de una función utilizando un método de aproximación
 por pasos que depende de una variable aleatoria. Así se puede buscar
 el mínimo de una función sin tener que buscar la derivada de la misma.\\
 
+Posteriormente, apollándose en los trabajos de Robbins y Monro,
+empezaron a aparecer los métodos de búsqueda local. Estos enfoques
+consisten en tratar de buscar una solución al problema por medio de
+evaluaciones de la función objetivo (función que tratamos de
+maximizar). El primer método desarrollado en esta línea fue propuesto
+por L. A. Rastrigin, que propuso el algoritmo conocido como
+\textit{random search}. Consiste en comenzar evaluando la función
+objetivo en un punto aleatorio del espacio de soluciones, y tras esto,
+mientras no se haya alcanzado un criterio de parada (se hayan
+terminado el número de iteraciones fijadas para el algoritmo, o se
+haya alcanzado una cota para la solución establecida de antemano), se
+siguen evaluando puntos en un vecindario cercano a la solución actual,
+por medio de introducir un cambio aleatorio en la solución sobre la
+que trabajamos, hasta que encontremos una solución que nos de mejores
+resultados que la que teníamos hasta el momento. Una vez encontrada
+dicha solución más satisfactoria, se descarta la solución antigua
+y se empieza a trabajar con la nueva.\\
+
+Este enfoque se consideró interesante durante varios años, ya que
+permitía encontrar soluciones razonablemente buenas a problemas de
+optimización sencillos, pero que no podían resolverse con técnicas
+clásicas de optimización.\\
+
+Estas primeras aproximaciones, aunque todavía eran simples y no
+obtenían buenos resultados, llamaron la atención de gran parte de la
+comunidad, y empezaron a diseñarse estrategias más sofisticadas para
+la resolución de problemas de este tipo. Las premisas de las que se
+partían eran las siguientes:
+
+\begin{itemize}
+\item Se trataban de resolver problemas complejos, en los que el uso
+  de técnicas clásicas quedaba descartado.
+\item El espacio de soluciones era amplio, por lo que no podía
+  estudiarse por completo.
+\item No preocupa tanto la obtención de la solución óptima, si no que
+  se adquiere un compromiso entre la bondad de la solución obtenida y
+  el tiempo necesario para encontrar dicha solución.
+\end{itemize}
+
+A pesar de que estas premisas no fueron consensuadas hasta mediados de
+los años ochenta, cuando se acuñó el término \textit{metaheurística}
+por Fred W. Glover, las nombramos aquí porque suponen un punto de partida
+importante para entender cómo se ha desarrollado esta rama.\\
+
 \section{Algoritmos genéticos}
 
 \section{Programación evolutiva}
