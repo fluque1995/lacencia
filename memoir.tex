@@ -430,6 +430,88 @@ sido establecidas o explicadas.\\
 
 \section{Programación evolutiva}
 
+Uno de los primeros enfoques que se tomaron dentro del ámbito de la
+computación evolutiva fue el de la programación evolutiva. Fue
+propuesto por Lawrence J. Fogel, un estudiante de la Universidad de
+Nueva York y doctorado por la Universidad de California. Comenzó
+trabajando como ingeniero aeroespacial en \textit{General Dynamics}
+tras terminar la carrera en ingeniería eléctrica. Tras esto, sirvió
+como asistente del Director Asociado en la \textit{National Science
+  Foundation}, donde estuvo trabajando en modelos matemáticos para
+predecir el impacto económico que tendría la inversión en
+investigación científica.  Dichos estudios fueron aplicados en varias
+agencias gubernamentales, como el Departamento de Defensa, la
+Administración Nacional Espacial y Aeronáutica, el Departamento de
+Salud, o la Administración Educativa. Este trabajo multidisciplinar
+motivó el interés de Fogel en diversas áreas como la cibernética o la
+biotecnología, y lo llevó a la hipótesis de que la simulación de la
+evolución en un ordenador podía ser utilizada para generar
+inteligencia artificial.\\
+
+Todos estos razonamientos fueron puestos en práctica tras su vuelta a
+\textit{General Dynamic}, donde comenzó a explorar la programación
+evolutiva en la predicción de series temporales. Tras estos trabajos,
+publicó su tesis en la Universidad de California, como hemos
+mencionado antes, en la que comenzó a hablar del término programación
+evolutiva y su utilidad para la resolución de problemas de
+optimización y búsqueda. Dicha tesis tuvo lugar en el año 1964, y es
+la fecha en la que se considera que se especificó y desarolló la
+técnica.\\
+
+Tras esto, en 1965, abandonó su puesto en \textit{General Dynamics}
+para fundar su propia empresa, \textit{Decision Science, Inc.}, que
+estaba enfocada a la aplicación de la programación evolutiva para la
+resolución de problemas reales, específicamente en las áreas de
+simulación por ordenador, predicción y control de sistemas. Dicha
+empresa fue pionera en ser ideada específicamente para aplicar la
+computación evolutica para resolver problemas reales, y no como mera
+investigación dentro de la materia.\\
+
+Las bases sobre las que trabajó Fogel son las siguientes. Se trataba
+de predecir el comportamiento de un entorno cambiante dependiente del
+tiempo (serie temporal), para intentar tomar acciones en función del
+comportamiento esperado del sistema. Se codificaba entonces el estado
+del sistema utilizando una secuencia de símbolos cogidos de un
+alfabeto finito, y dicha secuencia se lee con un autómata finito, que
+produce una salida.\\
+
+La propuesta de Fogel es entonces tener un conjunto de autómatas
+finitos, que forman la población de soluciones. Para cada autómata
+finito, se evalúa su capacidad de predicción utilizando la salida que
+utiliza para la cadena de entrada. Se define una función de adecuación
+o \textit{fitness}, que mide el grado de corrección en la predicción
+del autómata en ese entorno.\\
+
+Tras tener la población de padres generados de forma aleatoria y
+evaluados, se genera un población de hijos ``mutando'' la población de
+padres. Cada padre genera un único hijo. Según Fogel, existen cinco
+tipos de mutaciones posibles, atendiendo a la descripción de autómata
+finito:
+
+\begin{enumerate}
+\item Cambiar un símbolo de salida
+\item Cambiar una transición de estado
+\item Añadir un estado
+\item Eliminar un estado
+\item Cambiar el estado inicial
+\end{enumerate}
+
+Propuso mutaciones más fuertes más adelante, pero no llegó a
+implementarlas. Las mutaciones que se producían eran seleccionadas
+respecto de una variable aleatoria. Una vez producida la población de
+hijos por mutación, se evaluaban de la misma manera que los padres,
+Tras esto, entraban en competición los padres con los hijos de forma
+que sólo permanecían en la población para generar la siguiente prole
+la mitad mejor de los individuos. De esta forma, el tamaño de la
+población de padres permanece constante durante todo el algoritmo.
+Este proceso de mejora de las predicciones por la población se repetía
+hasta que era necesario generar un nuevo símbolo (había que hacer una
+predicción nueva). En ese momento, se utilizaba toda la población para
+predecir el siguiente símbolo (se tomaba como siguiente símbolo el
+símbolo predecido en más ocasiones por la población), se introducía
+dicho símbolo en la cadena de entrada, y la nueva cadena se seguía
+utilizando para entrenar a la población.
+
 \section{Estrategias de evolución}
 
 \section{Programación genética}
