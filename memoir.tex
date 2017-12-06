@@ -208,6 +208,171 @@ de mejorar la solución que representan.
 
 \section{Algoritmos genéticos}
 
+Los algoritmos genéticos pertenecen a la amplia familia de los algoritmos evolutivos. 
+Sin embargo, a diferencia de la mayoría de algoritmos evolutivos, que surgen 
+con la finalidad de resolver problemas de simulación para ingeniería y biología o para
+problemas de optimización, su origen es sustancialmente diferente. A principios de 
+los años 60, John Henry Holland, profesor de psicología, ingeniería eléctrica y ciencias
+de la computación en la universidad de Míchigan, comienza a desarrollar lo que él llama,
+los algoritmos genéticos. Holland propone estos algoritmos en su búsqueda por comprender
+la evolución de una población, más generalmente, de encontrar los criterios seguidos
+por los sistemas adaptativos. Publica así en 1962 un estudio sobre el tema.\\ 
+
+
+
+Holland inicialmente propone un sistema adaptativo formado por una población 
+de cromosomas que irán evolucionando de forma que las futuras generaciones 
+tiendan a ser mejores. Para ello, contará con cromosomas, que serán cadenas 
+binarias, donde cada uno de sus elementos será llamado gen. A partir de una 
+población inicial, los cromosomas interactuarán de forma iterativa dando lugar 
+a nuevas generaciones. El proceso iterativo contará con las siguientes fases: 
+en primer lugar se realiza una selección de individuos en nuestra población 
+para reproducirse. A continuación se aplica un operador de cruce entre los 
+padres, de forma que se obtengan descendientes similares a ambos. Se pasa a 
+aplicar una serie de modificaciones aleatorias a algunos, o todos, los descendientes 
+obtenidos. En un proceso conocido como mutación. A continuación se aplicará 
+el operador de inversión, que consiste en tomar una subcadena del cromosoma 
+y sustituirla por su inversa. Finalmente se somete a la población anterior, 
+junto a la descendencia obtenida a un proceso de selección, en el que se 
+seleccionarán los mejores individuos según una función fitness, y éstos pasarán 
+a formar la nueva generación.\\
+
+Holland entendía esta función fitness como una medida de la capacidad de 
+competición e innovación de los individuos para dinámicamente responder 
+ante cambios no predecibles del ambiente. Con esta formulación de los 
+algoritmos genéticos, Holland fue el primero en introducir explícitamente 
+las nociones de cruce, o cualquier otro tipo de operadores de recombinación 
+en el ámbito de los algoritmos evolutivos.\\
+
+En los próximos años, surgen figuras como Bagley, cuya tésis trata sobre la 
+aplicación de los algoritmos genéticos sobre la función de evaluación en 
+programas que juegan a juegos, o la tésis de Cavicchio (1970) en la trata 
+los algoritmos genéticos desde una perspectiva de búsqueda adaptativa. 
+Introduce además el concepto de elitismo, con el que cada generación mantendrá 
+la mejor solución obtenida hasta el momento, y operadores de mutación que se 
+adaptan a lo largo de las iteraciones según las necesidades de cada generación.\\
+
+A pesar de las figuras anteriores y algunas más, durante los años sesenta el 
+principal desarrollo y estudio de los algoritmos generación se centra en la 
+universidad de Míchigan, con John Holland y sus estudiantes. Será durante estos 
+años cuando Holland, junto con algunos alumnos de doctorado desarrollará una 
+función fitness con la que predice la calidad de cada generación.\\
+
+En 1972 destaca la tésis de Frantz, en la que propone nuevas técnicas de cruce, 
+con lo que se conoce como operadores de cruce multipuntos.\\
+
+
+
+En 1975 se produce el evento más importante de la historia de los algoritmos 
+genéticos cuando John Holland publica su libro ``Adaptation in Natural and 
+Artificial Systems'' en el que establece la estructura de los  algoritmos 
+genéticos y presenta un estudio matemático de los fundamentos teóricos de los 
+mismos. Esto último supone un gran avance en el campo de los algoritmos 
+evolutivos, puesto que es la primera vez que se estudia teóricamente el 
+comportamiento de algún algoritmo evolutivo.\\
+
+
+En su libro John Holland mantiene la estructura original que propuso en 1962, 
+pero añade la noción de ``esquemas''. Un esquema será simplemente un patrón 
+presente en la estructura de los cromosomas. A partir de los esquemas  Holland 
+establecía una medida de bondad de la generación actual a partir de los valores 
+fitness obtenidos para cada esquema, donde entendía el valor fiteness de un 
+esquema como la media de los valores obtenidos por cada cromosoma existente que 
+cumpliese el esquema en cuestión. Con esta medida se pretendía guiar el proceso 
+de evolución de la población. \\
+
+A partir de lo anterior introdujo una formalización para predecir la calidad de 
+la siguiente generación a partir de lo que se conoció como el Teorema de los 
+esquemas de Holland.\\
+
+
+También en 1975, Kenneth De Jong, estudiante de doctorado de Holland, presenta 
+su tésis doctoral, que será el primer estudio del uso de algoritmos genéticos 
+para resolver problemas de optimización. Con el trabajo de Kenneth se pone de 
+manifiesto al utilidad práctica de los algoritmos genéticos. Además establece 
+un standard a seguir con los mismos, y durante años cualquier estudio de calidad
+sobre algoritmos genéticos seguía las pautas marcadas por Kenneth y presentaba 
+los benchmarks presentes en su tésis.\\
+
+En dicha tésis, De Jong no solo estudia teóricamente el comportamiento de los 
+algoritmos genéticos, sino que también los estudia desde un punto de vista 
+experimental. Además, pone de manifiesto el potencial que presentan los algoritmos 
+genéticos para resolver problemas de optimización desde un punto de vista teórico, 
+potencial que ya había sugerido anteriormente Sampson.\\
+
+Tras estas dos principales publicaciones, aumentan en los años 70 y 80 las 
+investigaciones sobre los algoritmos genéticos. Poco a poco los algoritmos genéticos van
+cogiendo fuerza en el terreno científico y surge una 
+comunidad de estudios de los mismos.\\
+
+A mediados de los 70 en otras universidades comienzan a estudiar los algoritmos genéticos,
+y comienzan a aparecer múltiples tésis doctorales sobre los mismos, de las que se podrían 
+destacar las de Bethke, Booker, y Goldberg. Sin embargo, el desarrollo de los algoritrmos 
+genéticos continúa siendo muy lento, ya que la comunidad de la Inteligencia Artificial
+aún era excéptica ante los mismos y se centra en el desarrollo de otras técnicas novedosas 
+y de gran funcionalidad como el nacimiento del perceptrón.\\
+
+En el verano de 1976, científicos de varias universidades, entre ellas la de Michigan, 
+Pitsburg o  Alberta, organizaron una conferencia sobre sistemas adaptativos en Ann Arbor, 
+Míchigan. Apenas participaron 20 científicos, pero supuso la puesta en contacto de diversos 
+científicos que trabajaban en el área de los algoritmos genéticos. Durante los siguientes 
+años siguieron repitiendo el evento.\\
+
+En 1981 Holland, De Jong y Sampson fundan An Interdisciplinary Workshop in Adaptive Systems 
+en la universida de Míchigan.\\
+
+
+ Hasta los años 80 el desarrollo de los algoritmos genéticos
+había seguido un desarrollo muy teórico, pero el aumento del interés de la comunidad científica 
+en los mismos desemboca en que a mediados de los años 80  se organice
+en Pittsburgh, Pensilvania, la Primera Conferencia Internacional de Algoritmos Genéticos.\\
+
+En esta conferencia, con 75 participantes, se discutieron temas tanto teóricos como prácticos
+de los algoritmos genéticos. El éxito de la conferencia fue tal que acordaron repetirla con 
+carácter bianual.\\
+
+A partir de estas conferencias comienzan a surgir numerosos libros sobre el tema. Cabe destacar
+el publicado por Golsberg (1987), puesto que presenta una visión clara y precisa de los algoritmos
+genéticos en un tono sencillo, fácil de entender para cualquier persona aunque no fuera experta
+en el tema. Esto supone una amplia 
+difusión de los algoritmos genéticos.\\
+
+El gran crecimiento de la comunidad desembocó en la creación de la Sociedad Internacional de 
+Algoritmos Genéticos'(ISGA) en 1989. A partir de entonces el desarrollo de los algoritmos 
+genéticos ha presenta un crecimiento rápido y desordenado, sin seguir ningún estándar, y presentando
+ahora representación en problemas de carácter real. En consecuenta, los 90 fueron un periodo de tremendo
+crecimiento y diversidad del área de los algoritmos genéticos. \\
+
+
+Conforme surgen nuevos estudios de los algoritmos genéticos, se comprueba que las características
+que Holland establecía en su libro ``Adaptation in Natural and Artificial Systems'' como deseables
+en un algoritmo genético, no concuerdan con los experimentos obtenidos. Esto se debe principalmente
+a que, por la reducida capacidad de cálculo que se tenía, los experimentos realizados por Holland
+previos a sus conclusiones habían sido con muestras muy pequeñas y tamaños de poblaciones demasiado
+pequeñas, dando lugar a que los resultados no fuesen fiables. \\
+
+Sin embargo, a pesar de la mala predicción de las características estimadas por Holland de un 
+algoritmo genético, el uso de los esquemas como fundamento teórico del buen funcionamiento de los
+algorítmos genéticos ha sido ampliamente aceptado hasta hace poco.\\
+
+
+Lo cierto es que, más allá de la descripción dada en ``Adaptation in Natural and Artificial Systems''
+no existe una definición rigurosa de qué es un algoritmo genético que sea aceptada por la comunidad de los 
+algoritmos evolutivos, y muchas veces la frontera entre estos algoritmos y otros evolutivos es
+realmente débil. \\
+
+Sin embargo, la mayoría de los algoritmos hoy catalogados como algoritmos genéticos coinciden en los 
+siguiente elementos: se cuenta con una población de cromosomas, que a partir de una función fitness
+que se pretende optimizar son sometidos a los operadores de selección, cruce, mutación y reemplazamiento
+de forma iterativa. Podemos notar que el operador de inversión introducido por Holland ha desaparecido 
+del panorama actual, ya que recibió duras críticas debido a que sus ventajas, en caso de existir, no han 
+sido establecidas o explicadas.\\
+
+De hecho, el uso del operador de inversión supone una mutación fuerte sobre los elementos de la población
+que cambiaba radicalmente los esquemas presentes en cada cromosoma, y el mismo Holland había estblecido
+la importancia de seguir estos esquemas.\\
+
+
 \section{Programación evolutiva}
 
 \section{Estrategias de evolución}
