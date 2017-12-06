@@ -192,19 +192,44 @@ locales, pero permitiendo el avance hacia peores soluciones. Además,
 como novedad incorpora una lista de \textit{soluciones tabú}, que son
 soluciones evaluadas en las últimas iteraciones del algoritmo. Esta
 lista sirve para evitar que el algoritmo retroceda hacia soluciones
-anteriormente visitadas, de forma que no se pierdan iteraciones 
+anteriormente visitadas, de forma que no se pierdan iteraciones
 del mismo sin sentido.\\
 
 Tras estos avances, se intenta ahora hibridar los algoritmos obtenidos
 hasta el momento para conseguir soluciones todavía mejores. Aparece
-entonces el concepto de algoritmo memético, propuesto por Pablo Moscato
-en el Instituto Tecnológico de Calfornia (Caltech) en 1989. Esta 
-metodología trata de unir los algoritmos genéticos con los algoritmos
-de búsqueda local. Consiste en ejecutar un algoritmo genético de los
-anteriormente explicados, y cada cierto número de generaciones (nombre
-con el que se conoce a las iteraciones de un algoritmo genético) aplicar
-una búsqueda local sobre ciertos individuos de la población, con el fin
-de mejorar la solución que representan.
+entonces el concepto de algoritmo memético, propuesto por Pablo
+Moscato en el Instituto Tecnológico de Calfornia (Caltech) en
+1989. Esta metodología trata de unir los algoritmos genéticos con los
+algoritmos de búsqueda local. Consiste en ejecutar un algoritmo
+genético de los anteriormente explicados, y cada cierto número de
+generaciones (nombre con el que se conoce a las iteraciones de un
+algoritmo genético) aplicar una búsqueda local sobre ciertos
+individuos de la población, con el fin
+de mejorar la solución que representan.\\
+
+Tras este desarrollo, empiezan a aparecer algoritmos que se inspiran
+en procesos biológicos, que se conocen como algoritmos bioinspirados.
+En este sentido, aparece en 1992 el algoritmo de colonia de hormigas,
+que simula la organización de un hormiguero, y la cooperación entre
+hormigas para encontrar comida. Es ampliamente utilizado actualmente
+para la búsqueda de caminos más cortos cuando se han de visitar un
+conjunto ciudades (lo que se conoce como problema del viajante de
+comercio).\\
+
+Finalmente, ante la gran diversidad de algoritmos que aparecieron para
+resolver problemas de optimización, los investigadores en el área
+empezaron a preguntarse si existe un único algoritmo que sea capaz de
+resolver correctamente cualquier clase de problemas. Durante varios
+años se estuvo investigando en este área, hasta que en 1997 se
+enunciaron y demostraron (por parte del matemático David Wolpert y el
+informático William Macready) los \textit{Non free lunch theorems for
+  optimization}. Dichos teoremas sostienen que ``en media, los
+resultados obtenidos por dos algoritmos de optimización sobre todas
+las clases de problemas posibles son equivalentes''. Esto viene a
+decir que, si un algoritmo tiene un mejor comportamiento para una
+clase de problemas, se verá perjudicado al intentar resolver problemas
+de otro tipo. Esto viene a justificar que se siga investigando en este
+área.
 
 \section{Algoritmos genéticos}
 
