@@ -29,7 +29,7 @@
 \begin{document}
 \maketitle
 \begin{center}  
-\includegraphics[scale=0.35]{escudo.png}
+  \includegraphics[scale=0.35]{escudo.png}
 \end{center}
 
 \newpage
@@ -478,10 +478,10 @@ representan mediante estructuras lineales como valores reales o
 cadenas de bits.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{individuo.PNG}
-    \caption{Individuo que representa la función \(3\times(x+6)\).}
-    \label{fig:dfd:1}
+  \centering
+  \includegraphics[width=0.4\textwidth]{individuo.PNG}
+  \caption{Individuo que representa la función \(3\times(x+6)\).}
+  \label{fig:dfd:1}
 \end{figure}
 
 La elección de los genes disponibles es una tarea importante 
@@ -528,34 +528,34 @@ tienen un numero de hijos igual a la cantidad de parámetrosque necesitan
 como argumento. Con esta estrategia te aseguras que todos los individuos 
 tienen una profundidad \(m\) aunque por contra la variación es menor 
 que con la estrategia grow.\\
- 
+
 \subsubsection{Ramped-half-and-half}
- 
+
 Se propone esta estrategia para aumentar la variación usando las dos
 estrategias anteriores. Solo se especifica una profundidad máxima, y
 se generan la mitad de los individuos usando el método grow, mientras
 que la otra mitad se genera usando el método full, creando asi una
 población con una gran diversidad.
- 
+
 \subsection{Función Fitness}
- 
+
 Al igual que ocurre en los algoritmos genéticos, una vez que la
 población esta inicializada, los individuos necesitan ser evaluados
 para saber lo bueno o malo que es un individuo. La función fitness mas
 común es aquella que se adapte de forma más natural al problema que se
 plantee. Un ejemplo sería el problema de clasificación donde la
 función fitness mas natural seria el número de aciertos.
- 
+
 \subsection{Operadores}
- 
+
 Análogamente a los algoritmos genéticos, la programación genética
 cuenta con operadores de selección, cruce y mutación.Actualmente se
 consideran otras operaciones como la edición, permutación o el
 encapsulamiento , aunque la mayoria de ellas fueron ignoradas por Koza
 en sus primeros trabajos.
- 
+
 \subsubsection{Selección}
- 
+
 Para la selección se utilizan los mecanismos habituales de los
 algoritmos genéticos, en el caso de la programación genética, Koza
 permitía que un 10\% de la poblacón se pudiese reproducir además del
@@ -565,9 +565,9 @@ elegir a ese individuo e introducir una copia de el mismo en la
 población, si la función fitness es fija, la reproducción tiene un
 efecto significativo en el tiempo ya que un individuo generado por
 reproducción tendrá el mismo valor fitness que su padre.
- 
+
 \subsubsection{Cruce}
- 
+
 El proceso del operador de cruce es similar al de los algoritmos genéticos, 
 en este caso generamos aleatoriamente una arista a cada padre y se 
 intercambian los subárboles generando así dos hijos nuevos.\\
@@ -577,12 +577,12 @@ el cruce si la profundidad del árbol supera el máximo para evitar que
 crezca indefinidamente. Otra consideración posible sería la de
 incorporar criterios que penalicen en la función fitness una excesiva
 complejidad de los programas.
- 
+
 \subsubsection{Mutación}
- 
+
 La mutación en el caso de la programación genética se puede realizar
 de dos formas:
- 
+
 \begin{itemize}
 \item Mutación de subárbol: en esta mutación se escoge una arista y se
   sustituye el subárbol conectado a esta por otro generado
@@ -605,7 +605,7 @@ repite hasta cumplir el criterio de parada al igual que ocurre en los
 algoritmos genéticos, el programa elegido será el mejor de la
 población final. El siguiente diagrama de flujo resume todo lo
 explicado en la sección.
-  
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{FlowchartGP.PNG}
@@ -615,11 +615,11 @@ explicado en la sección.
 
 
 \section{Referencias}
-%https://www.cs.montana.edu/~bwall/cs580/introduction_to_gp.pdf
-%http://geneticprogramming.com/history/
-%https://es.wikipedia.org/wiki/Programaci%C3%B3n_gen%C3%A9tica
-%http://sci2s.ugr.es/sites/default/files/files/Teaching/GraduatesCourses/Bioinformatica/Tema%2013%20-%20PG.pdf
-%Koza, John R. 1992. Genetic Programming: On the Programming of Computers by Means of Natural Selection. Cambridge, MA: The MIT Press.
+% https://www.cs.montana.edu/~bwall/cs580/introduction_to_gp.pdf
+% http://geneticprogramming.com/history/
+% https://es.wikipedia.org/wiki/Programaci%C3%B3n_gen%C3%A9tica
+% http://sci2s.ugr.es/sites/default/files/files/Teaching/GraduatesCourses/Bioinformatica/Tema%2013%20-%20PG.pdf
+% Koza, John R. 1992. Genetic Programming: On the Programming of Computers by Means of Natural Selection. Cambridge, MA: The MIT Press.
 
 \end{document}
 
