@@ -315,8 +315,8 @@ esquemas de Holland.\\
 También en 1975, Kenneth De Jong, estudiante de doctorado de Holland, presenta 
 su tésis doctoral, que será el primer estudio del uso de algoritmos genéticos 
 para resolver problemas de optimización. Con el trabajo de Kenneth se pone de 
-manifiesto al utilidad práctica de los algoritmos genéticos. Además establece 
-un standard a seguir con los mismos, y durante años cualquier estudio de calidad
+manifiesto la utilidad práctica de los algoritmos genéticos. Además establece 
+un estándar a seguir con los mismos, y durante años cualquier estudio de calidad
 sobre algoritmos genéticos seguía las pautas marcadas por Kenneth y presentaba 
 los benchmarks presentes en su tésis.\\
 
@@ -364,7 +364,7 @@ difusión de los algoritmos genéticos.\\
 
 El gran crecimiento de la comunidad desembocó en la creación de la Sociedad Internacional de 
 Algoritmos Genéticos (ISGA) en 1989. A partir de entonces el desarrollo de los algoritmos 
-genéticos ha presenta un crecimiento rápido y desordenado, sin seguir ningún estándar, y utilizados
+genéticos presenta un crecimiento rápido y desordenado, sin seguir ningún estándar, y utilizados
 también para optimizar problemas de naturaleza real. En consecuencia, los 90 fueron un periodo de tremendo
 crecimiento y diversidad del área de los algoritmos genéticos. \\
 
@@ -404,11 +404,11 @@ sido establecidas o explicadas.\\
 
 \subsection{Introducción histórica} 
 
-La programación genética es un caso particular de algoritmos genéticos usados para mejorar programas de ordenador de un modo automático. La población la componen programas de  ordenador (individuos) que se cruzan unos con otros, y al igual que ocurre con los algoritmos genéticos y con el paso del tiempo, los mejores individuos sobreviven y eventualmente evolucionan para mejorar. \\
+La programación genética es un caso particular de algoritmos genéticos usados para mejorar programas de ordenador de un modo automático. La población la componen programas de  ordenador (individuos) que se cruzan unos con otros, y al igual que ocurre con los algoritmos genéticos, con el paso del tiempo, los mejores individuos sobreviven y eventualmente evolucionan para mejorar. \\
 
-La primera referencia que se tiene de evolucionar programas es probablemente la de Alan Turing en la década de los 50. Sin embargo, pasaron 30 años hasta que Richard Forsyth demostrara el exito en la evolución de pequeños programas, representados como arboles, para mejorar la clasificación de las pruebas de una escena de crimen.\\
+La primera referencia que se tiene de evolucionar programas es probablemente la de Alan Turing en la década de los 50. Sin embargo, pasaron 30 años hasta que Richard Forsyth demostrara el éxito en la evolución de pequeños programas, representados como árboles, para mejorar la clasificación de las pruebas de una escena de crimen.\\
 
-En 1988 John Koza, estudiante de John Holland, patentó un algoritmo genético orientado a la evolución de programas, seguido de una publicación en la International Joint Conference on Artificial Inteligence. Koza ha sido el exponente principal de la programación genética aplicando esta a complejos problemas de búsqueda.
+En 1988 John Koza, estudiante de John Holland, patentó un algoritmo genético orientado a la evolución de programas, seguido de una publicación en la International Joint Conference on Artificial Inteligence. Koza ha sido el exponente principal de la programación genética aplicando ésta a problemas complejos de búsqueda.
 En la década de 1990, la programación genética se aplicó principalmente para resolver problemas sencillos debido a su alto coste computacional.\\
 
 Recientemente la programación genética ha cobrado protagonismo debido a los resultados positivos que ha mostrado en áreas como la computación cuántica, ordenamiento y búsqueda gracias a la potencia de computo de la que disponemos actualmente. Una de las grandes metas de la ciencia de la computación es, dado un problema, que la máquina sea capaz de construir un programa capaz de resolverlo, y la programación genética muestra suficiente potencial para conseguirlo en un futuro.\\
@@ -425,9 +425,9 @@ Cada individuo se representa mediante una estructura de árbol, donde los nodos 
     \label{fig:dfd:1}
 \end{figure}
 
-La elección de los genes disponibles es una tarea importante ya que una mala selección podria causar que no evolucione la solución.\\
+La elección de los genes disponibles es una tarea importante ya que una mala selección podría causar que no evolucione la solución.\\
 
-Una vez que los genes han sido seleccionados, se genera una poblacion de individuos de forma aleatoria y sin repetición como ocurre con los algoritmos genéticos. Koza desarrollo tres técnicas para ello: grow,full y ramped-half-and-half.
+Una vez que los genes han sido seleccionados, se genera una población de individuos de forma aleatoria y sin repetición como ocurre con los algoritmos genéticos. Koza desarrolló tres técnicas para ello: grow,full y ramped-half-and-half.
 
 \subsubsection{Grow}
 
@@ -442,10 +442,10 @@ Esta estrategia genera individuos de profundidad variable no mayor que \(m\) per
 
 \subsubsection{Full}
 
-Esta estrategia, a diferencia de grow, garantiza que todos los individuos tienen la misma profundidad, aunque el número de nodos es variable. Aqui también se necesita especificar una profundidad \(m\), y el proceso es el siguiente:
+Esta estrategia, a diferencia de grow, garantiza que todos los individuos tienen la misma profundidad, aunque el número de nodos es variable. Aquí también se necesita especificar una profundidad \(m\), y el proceso es el siguiente:
 
- Partiendo de la raiz, cada nodo con una profundidad menor que \(m\) , se convierte en una función aleatoria. Si el nodo tiene profundidad \(m\) entonces se convierte en un terminal aleatorio. 
- Todas las funciones tienen un numero de hijos igual a la cantidad de parámetros que necesitan como argumento. Con esta estrategia te aseguras que todos los individuos tienen una profundidad \(m\) aunque por contra la variación es menor que con la estrategia grow.\\
+ Partiendo de la raíz, cada nodo con una profundidad menor que \(m\) , se convierte en una función aleatoria. Si el nodo tiene profundidad \(m\) entonces se convierte en un terminal aleatorio. 
+ Todas las funciones tienen un número de hijos igual a la cantidad de parámetros que necesitan como argumento. Con esta estrategia te aseguras que todos los individuos tienen una profundidad \(m\) aunque por contra la variación es menor que con la estrategia grow.\\
  
  \subsubsection{Ramped-half-and-half}
  
@@ -453,35 +453,35 @@ Esta estrategia, a diferencia de grow, garantiza que todos los individuos tienen
  
  \subsection{Función Fitness}
  
- Al igual que ocurre en los algoritmos genéticos, una vez que la población esta inicializada, los individuos necesitan ser evaluados para saber lo bueno o malo que es un individuo. La función fitness mas común es aquella que se adapte de forma más natural al problema que se plantee. Un ejemplo sería  el problema de clasificación donde la función fitness mas natural seria el número de aciertos.
+ Al igual que ocurre en los algoritmos genéticos, una vez que la población está inicializada, los individuos necesitan ser evaluados para saber lo bueno o malo que es un individuo. La función fitness mas común es aquella que se adapte de forma más natural al problema que se plantee. Un ejemplo sería  el problema de clasificación donde la función fitness mas natural sería el número de aciertos.
  
  \subsection{Operadores}
  
- Análogamente a los algoritmos genéticos, la programación genética cuenta con operadores de selección, cruce y mutación.Actualmente se consideran otras operaciones como la edición, permutación o el encapsulamiento , aunque la mayoria de ellas fueron ignoradas por Koza en sus primeros trabajos.
+ Análogamente a los algoritmos genéticos, la programación genética cuenta con operadores de selección, cruce y mutación.Actualmente se consideran otras operaciones como la edición, permutación o el encapsulamiento , aunque la mayoría de ellas fueron ignoradas por Koza en sus primeros trabajos.
  
  \subsubsection{Selección}
  
- Para la selección se utilizan los mecanismos habituales de los algoritmos genéticos, en el caso de la programación genética, Koza permitía que un 10\% de la poblacón se pudiese reproducir además del proceso de selección habitual. La función de selección es la encargada de elegir que individuo se reproduce, cuya reproducción no es mas que elegir a ese individuo e introducir una copia de el mismo en la población, si la función fitness es fija, la reproducción tiene un efecto significativo en el tiempo ya que un individuo generado por reproducción tendrá el mismo valor fitness que su padre.
+ Para la selección se utilizan los mecanismos habituales de los algoritmos genéticos, en el caso de la programación genética, Koza permitía que un 10\% de la población se pudiese reproducir además del proceso de selección habitual. La función de selección es la encargada de elegir que individuo se reproduce, cuya reproducción no es mas que elegir a ese individuo e introducir una copia del mismo en la población, si la función fitness es fija, la reproducción tiene un efecto significativo en el tiempo ya que un individuo generado por reproducción tendrá el mismo valor fitness que su padre.
  
  \subsubsection{Cruce}
  
  El proceso del operador de cruce es similar al de los algoritmos genéticos, en este caso generamos aleatoriamente una arista a cada padre y se intercambian los subárboles generando así dos hijos nuevos.\\
- Algunas consideraciones a tener en cuenta pueden ser la de no efectuar el cruce si la profundidad del árbol supera el máximo para evitar que crezca indefinidamente. Otra consideración posible sería la de incorporar criterios que penalicen en la función fitness una excesiva complejidad de los programas.
+ Algunas consideraciones a tener en cuenta pueden ser la de no efectuar el cruce si la profundidad del árbol supera el máximo para evitar que crezca indefinidamente. Otra consideración posible sería la de incorporar criterios que penalicen, en la función fitness, una excesiva complejidad de los programas.
  
  \subsubsection{Mutación}
  
  La mutación en el caso de la programación genética se puede realizar de dos formas:
  
  \begin{itemize}
-\item  Mutación de subárbol: en esta mutación se escoge una arista y se sustituye el subárbol conectado a esta por otro generado aleatoriamente, sin superar el tamaño máximo establecido.
-\item  Mutación de punto: se escoge un nodo de forma aleatoria y se cambia su valor por otro del mismo tipo, esto se realiza haciendo previamente una lista de los terminales y funciones que pueden intercambiarse entre si para que sigan siendo individuos válidos.
+\item  Mutación de subárbol: en esta mutación se escoge una arista y se sustituye el subárbol conectado a ésta por otro generado aleatoriamente, sin superar el tamaño máximo establecido.
+\item  Mutación de punto: se escoge un nodo de forma aleatoria y se cambia su valor por otro del mismo tipo, esto se realiza haciendo previamente una lista de los terminales y funciones que pueden intercambiarse entre sí para que sigan siendo individuos válidos.
 \end{itemize}
 
-La mutación aqui tiene menos importancia que en los algoritmos genéticos ya que el operador de cruce es suficiente para mantener la diversidad.
+La mutación aquí tiene menos importancia que en los algoritmos genéticos ya que el operador de cruce es suficiente para mantener la diversidad.
 
 \subsection{Finalización}
 
-Como conclusión a esta sección añadir que el reemplazo se realiza sustituyendo la población nueva por la anterior, y el proceso se repite hasta cumplir el criterio de parada al igual que ocurre en los algoritmos genéticos, el programa elegido será el mejor de la población final. El siguiente diagrama de flujo resume todo lo explicado en la sección.
+Como conclusión a esta sección añadir que el reemplazo se realiza sustituyendo la población anterior por la nueva, y el proceso se repite hasta cumplir el criterio de parada al igual que ocurre en los algoritmos genéticos, el programa elegido será el mejor de la población final. El siguiente diagrama de flujo resume todo lo explicado en la sección.
   
 \begin{figure}[H]
     \centering
