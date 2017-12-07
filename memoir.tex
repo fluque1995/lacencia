@@ -211,29 +211,29 @@ siguiente figura:
 \begin{algorithm}[H]
   \begin{algorithmic}[1]
     \label{ES-alg}
-    \Procedure ES
+    \Procedure{ES}
     \State $g := 0$
     \State initialize $\left( P_p^{(0)} := \left\{ \left(y_m^{(0)},
             s_m^{(0)}, F(y_m^{(0)}) \right), m = 1, ..., \mu \right\}
     \right);$
     \Repeat
 
-    \For {$l := 1$ To $\lambda$}
+    \For {$l := 1$ \textbf{To} $\lambda$}
     \State $O_l :=$ marriage $\left( P_p^{(g)}, \rho \right);$
-    \State $s_l := s_{recombination} \left( O_l \right);$
-    \State $y_l := y_{recombination} \left( O_l \right);$
-    \State $\tilde{s_l} := s_{mutation} \left( s_l \right);$
-    \State $\tilde{y_l} := y_{mutation} \left( y_l, \tilde{s_l} \right);$
+    \State $s_l := s\_recombination \left( O_l \right);$
+    \State $y_l := y\_recombination \left( O_l \right);$
+    \State $\tilde{s_l} := s\_mutation \left( s_l \right);$
+    \State $\tilde{y_l} := y\_mutation \left( y_l, \tilde{s_l} \right);$
     \State $\tilde{F}_l := F(\tilde{y_l})$
     \EndFor
 
     \State $P_0^{(g)} := \left\{ \left( \tilde{y_l}, \tilde{s_l},
           \tilde{F_l} \right), l = 1, ..., \lambda \right\};$
 
-    \If {$selection_{type} == (\mu, \lambda)$}
-    \State $P_p^{(g+1)} := selection \left( P_o^{(g)}, \mu \right);$
-    \ElsIf {$selection_{type} == (\mu + \lambda)$}
-    \State $P_p^{(g+1)} := selection \left( P_o^{(g)}, P_p^{(g)} \mu \right);$
+    \If {selection\_type $ == (\mu, \lambda)$}
+    \State $P_p^{(g+1)} := \mathrm{selection} \left( P_o^{(g)}, \mu \right);$
+    \ElsIf {selection\_type $ == (\mu + \lambda)$}
+    \State $P_p^{(g+1)} := \mathrm{selection} \left( P_o^{(g)}, P_p^{(g)} \mu \right);$
     \EndIf
 
     \State $g := g + 1$
@@ -242,10 +242,10 @@ siguiente figura:
     \EndProcedure
   \end{algorithmic}
 \end{algorithm}
-  \caption{Pseudocódigo del $(\mu / \rho, {+}\over{,} \lambda)$-ES \cite{paper-es-salva}}
+  \caption{Pseudocódigo del $\left( \mu / \rho, \overset{+}{,} \lambda \right)$-ES \cite{paper-es-salva}}
 \end{figure}
 
-En la notación actual, las $(\mu / \rho {+}\over{,} \lambda)$ ES consideran $\mu$ padres en cada generación, escogiéndose $\lambda$ subconjuntos de $\rho$ individuos para dar, cada uno de ellos, uno de los $\lambda$ descendientes. Como se había discutido previamente, en la versión ``$+$'' tanto los padres como la prole pueden pasar a la siguiente generación, mientras que en la versión ``,'' sólo los descendientes pueden sobrevivir. \\
+En la notación actual, las $(\mu / \rho \overset{+}{,} \lambda)$ ES consideran $\mu$ padres en cada generación, escogiéndose $\lambda$ subconjuntos de $\rho$ individuos para dar, cada uno de ellos, uno de los $\lambda$ descendientes. Como se había discutido previamente, en la versión ``$+$'' tanto los padres como la prole pueden pasar a la siguiente generación, mientras que en la versión ``,'' sólo los descendientes pueden sobrevivir. \\
 
 La descripción del pseudocódigo del algoritmo es como sigue:
 
