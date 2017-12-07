@@ -1,8 +1,15 @@
 \documentclass[12pt]{article} \usepackage[utf8x]{inputenc}
-\usepackage{graphicx} \usepackage{multirow} \usepackage{hhline}
-\usepackage{booktabs} \usepackage{vmargin} %cambia el margen
-\usepackage{amsmath,amsthm} \usepackage{amsfonts} \usepackage{float}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{booktabs}
+\usepackage{vmargin} %cambia el margen
+\usepackage{amsmath, amsthm}
+\usepackage{amsfonts}
+\usepackage{float}
 \usepackage{listings}
+\usepackage{algorithm} % http://ctan.org/pkg/algorithms
+\usepackage{algpseudocode} % http://ctan.org/pkg/algorithmicx
 
 
 \usepackage[hidelinks]{hyperref}
@@ -570,6 +577,181 @@ entrenamiento de redes neuronales.
 
 \section{Estrategias de evolución}
 
+De forma casi paralela a la aparición de los \textbf{algoritmos
+ genéticos} y la \textbf{programación evolutiva} en Estados Unidos,
+se desarrollaron en la segunda mitad de la década de los 60 en
+Alemania las \textbf{estrategias evolutivas} (\textit{evolution
+  strategies}, ES). En 1964, tres estudiantes de la Technical University of
+Berlin, viz.: Bienert, Rechenberg y Schwefel, se encontraron con un
+problema de diseño durante sus estudios de tecnología aeroespacial. La
+pieza a diseñar debía ser probada en una serie de experimentos en el
+túnel de viento con el objetivo de minimizar su rozamiento. \\
+
+Tras aplicar diversas técnicas \textit{clásicas} de análisis numérico a
+estos efectos, como el gradiente descendente, los resultados obtenidos
+fueron pobres, al menos lo suficiente como para tratar de explorar
+otras posibilidades. En ese momento Rechenberg decidió aplicar
+técnicas estocásticas usando dados para la generación de números
+aleatorios. Así nació la primera versión de las estrategias
+evolutivas, una $(1 + 1)$ ES en la notación actual, i.e.: en cada
+paso se consideraba una única solución \textit{padre}, de la cual se
+variaban aleatoriamente ciertas características. Una vez hecho esto,
+se comparaba la versión modificada con la original y se conservaba la
+mejor de ambas, continuando con el proceso mientras se considerara
+conveniente. \\
+
+Para comprobar la eficacia de esta nueva aproximación se trató de
+encontrar el óptimo, en un problema en dos dimensiones, de un problema
+similar al que se enfrentaban. Durante unas cuantas iteraciones el
+proto-algoritmo se mantuvo encallado en un óptimo local, para
+finalmente converger al óptimo global teórico. \\
+
+Más tarde, Bienert construyó un robot para llevar a cabo estos
+cálculos de forma automática; y Lihchtfu{\ss} aplicó con éxito esta técnica para
+el diseño de una tubería. El resultado fue inesperado, pero claramente
+mejor que los diseños conocidos hasta el momento. Asimismo, se empleó
+para diseñar una tobera que debía propulsar agua a velocidades
+supersónicas. Este experimento resultó especialmente interesante pues,
+entre otros factores, se desconocía la longitud óptima de la
+tobera. Para incluir esto en el espacio de búsqueda se emuló el
+duplicado/eliminación de genes, de forma que se pudiera trabajar con un número
+variable de parámetros indicando el diámetro de la tobera en distintos
+puntos. \\
+
+Sin embargo, pronto se descubrió que esta estrategia tenía sus
+inconvenientes. En particular, las distribuciones binomiales usadas
+hasta el momento producían, en muchas ocasiones, convergencia
+prematura a óptimos locales que dejaban mucho que desear. Es por esto
+que de ahí en adelante se adoptó como práctica común el empleo de
+distribuciones normales en lugar de binomiales para la generación de
+números aleatorios. \\
+
+Posteriormente, Rechenberg elaboró su tesis en 1971 estudiando los
+ratios de convergencia de las soluciones en distintos casos,
+obteniendo la famosa \textit{regla del quinto} (\textit{$\frac 1 5$th
+  rule}) y trató de optimizar el algoritmo aproximándolo más a lo que
+ocurría en la naturaleza, considerando una \textit{población} de
+soluciones en cada paso, introduciendo el paso de la
+\textit{recombinación} de soluciones además de la mutación y dando
+lugar a lo que, en la notación de Schwefel se denominó $(\mu + 1)$ ES
+($\mu$ padres, $1$ hijo). Nótese que esto no habría sido posible en
+las $(1 + 1)$ ES primigenias. \\
+
+No obstante, aun esta modificación no fue suficiente en términos de
+capacidad de adaptación, por lo que aparecieron las $(\mu + \lambda)$
+y $(\mu, \lambda)$ ES, con $\mu$ padres y $\lambda$ descendientes en
+cada generación. \\
+
+\begin{description}
+\item[$(\mu + \lambda)$] Se seleccionan los $\mu$
+mejores individuos de entre los $\mu$ padres y los $\lambda$
+descendientes de cada generación.
+\item[$(\mu, \lambda)$] También se crean $\lambda$ descendientes en
+  cada generación a partir de los $\mu$ padres. En este caso, sin
+  embargo, los padres \textbf{no} pueden sobrevivir, seleccionándose
+  los $\mu$ mejores descendientes de los $\lambda$
+  considerados. Claramente, es necesario que $\lambda > \mu$. En el
+  caso límite $\mu = \lambda$ todos los descendientes de cada
+  generación se seleccionan como padres, sin importar su bondad, por
+  lo que la población simplemente se dispersa aleatoriamente por el
+  espacio de búsqueda.
+\end{description}
+
+Cabe destacar que, pese a los éxitos cosechados experimentalmente, los
+inicios de esta disciplina fueron duros pues la comunidad científica
+de la época se mostraba reticente a aceptar (creer) su versatilidad y
+eficiencia por varios motivos.
+
+\begin{itemize}
+\item Durante la década de los 60 los métodos numéricos observaron un
+  desarrollo inaudito, ganándose el respeto de los investigadores de
+  la época y convirtiéndose incluso en \textit{buzzword}. Así, la
+  necesidad de considerar otras técnicas era cuestionable,
+  especialmente estas que no venían acompañadas de una justificación
+  teórica en cuanto a su eficacia. Esto cambió más tarde tras diversos
+  análisis por parte de Rechenberg, Schwefel y otros sobre su
+  algoritmo.
+\item Aun aceptando la posibilidad de que la $(1 + 1)$ ES fuera un
+  artefacto útil en ciertos casos, la incorporación de las $(\lambda +
+  \mu)$ ES no tuvo muy buena acogida. Por un lado, considerar $\mu >
+  1$ individuos en la población se consideraba innecesario, pues
+  simplemente aumentaba los tiempos de cálculo arrastrando individuos
+  poco (menos) prometedores. Por otro, $\lambda > 1$ parecía no
+  explotar inmediatamente el conocimiento obtenido en generaciones previas.
+\end{itemize}
+
+Si bien la crítica referida a los $\lambda > 1$ padres podía ser
+rebatida gracias a la computación en paralelo de los descendientes, el
+contraargumento no tenía mucho peso pues los ordenadores con
+arquitecturas capaces de procesamiento en paralelo no existían ni se
+los esperaba en el futuro próximo. \\
+
+Finalmente, tras todos los cambios introducidos a lo largo de su
+historia, la versión actual de una ES genérica puede verse resumida en la
+siguiente figura:
+
+\begin{figure}
+\begin{algorithm}
+  \caption{$(\mu/\rho {+}\over{,} \lambda)$ ES}\label{ES-alg}
+  \begin{algorithmic}[1]
+    \Procedure{ES}
+    \State g := 0
+    \State initialize$\left( P_p^{(0)} := \left{ \left(y_m^{(0)},
+            s_m^{(0)}, F(y_m^{(0)}) \right), m = 1, ..., \mu \right}
+    \right);$
+    \Repeat
+
+    \For $l := 1$ To $\lambda$ Do
+    $O_l :=$ marriage$\big( P_p^{(g)}, \rho \right);$
+    $s_l :=$ s_recombination$\big( O_l \right);$
+    $y_l :=$ y_recombination$\big( O_l \right);$
+    $\tilde{s_l} :=$ s_mutation$\big( s_l \right);$
+    $\tilde{y_l} :=$ y_mutation$\big( y_l, \tilde{s_l} \right);$
+    $\tilde{F}_l := F(\tilde{y_l})$
+    \EndFor
+
+    \State $P_0^{(g)} := \left{ \left( \tilde{y_l}, \tilde{s_l},
+          \tilde{F_l} \right), l = 1, ..., \lambda \right};$
+
+    \If{selection_type == $(\mu, \lambda)$}
+    \State $P_p^{(g+1)} := selection \left( P_o^{(g)}, \mu \right);$
+    \Elsif{selection_type == $(\mu + \lambda)$}
+    \State $P_p^{(g+1)} := selection \left( P_o^{(g)}, P_p^{(g)} \mu \right);$
+    \EndIf
+
+    \State $g := g + 1$
+
+    \Until termination condition
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+\caption{Pseudocódigo del $(\mu / \rho, {+}\over{,} \lambda)$-ES \cite{paper-es-salva}}
+\end{figure}
+
+En la notación actual, las $(\mu / \rho {+}\over{,} \lambda)$ ES consideran $\mu$ padres en cada generación, escogiéndose $\lambda$ subconjuntos de $\rho$ individuos para dar, cada uno de ellos, uno de los $\lambda$ descendientes. Como se había discutido previamente, en la versión ``$+$'' tanto los padres como la prole pueden pasar a la siguiente generación, mientras que en la versión ``,'' sólo los descendientes pueden sobrevivir. \\
+
+La descripción del pseudocódigo del algoritmo es como sigue:
+
+\begin{enumerate}
+\item En la primera generación ($g = 0$) se inicializa la población de padres (de qué forma concreta dependerá de cada problema).
+\item A continuación entramos en el bucle principal
+  \begin{enumerate}
+  \item Se comienza generando los descendientes de la generación actual. Cada iteración genera un nuevo vástago.
+    \begin{enumerate}
+    \item En primer lugar, el paso de la maridación (\textit{marriage}) selecciona una \textit{familia} de padres $O_l$ de tamaño $\rho$. Esta selección es completamente aleatoria, a diferencia de los algoritmos genéticos en los que se favorece la selección de los mejores padres.
+    \item Más tarde le llega el turno a la recombinación, tanto de las características de las soluciones (\textit{object parameters}) como de las de la estrategia (\textit{strategy parameters}). De nuevo, cómo se recombine la información de cada padre dependerá de una implementación a otra y no existe una forma óptima.
+    \item Por último, se mutan los \textit{strategy parameters} obtenidos de la recombinación y, sólo entonces, las características de la solución con los nuevos \textit{strategy parameters} obtenidos. Finalmente se calcula la bondad de la nueva solución obtenida mediante la función objetivo.
+    \end{enumerate}
+  \item Una vez generados todos los descendientes, se distingue entre el esquema de  selección $(\mu, \lambda)$ y $(\mu + \lambda)$:
+    \begin{enumerate}
+    \item En el primer caso se seleccionan los $\mu$ descendientes
+    \item En el segundo caso se seleccionan los $\mu$ mejores individuos de entre los padres ($P_p^{(g)}$) y los descendientes ($P_o^{(g)}$).
+    \end{enumerate}
+  \item Para finalizar se actualiza la generación actual.
+  \item El bucle principal se repetirá mientras no se alcance la condición de parada que, de nuevo, depende en gran medida de la casuística concreta del problema.
+  \end{enumerate}
+\end{enumerate}
+
 \section{Programación genética}
 
 
@@ -780,5 +962,3 @@ aplicaciones en campos como la programación cuántica.
 % Koza, John R. 1992. Genetic Programming: On the Programming of Computers by Means of Natural Selection. Cambridge, MA: The MIT Press.
 
 \end{document}
-
-
