@@ -578,7 +578,7 @@ entrenamiento de redes neuronales.
 \section{Estrategias de evolución}
 
 De forma casi paralela a la aparición de los \textbf{algoritmos
- genéticos} y la \textbf{programación evolutiva} en Estados Unidos,
+  genéticos} y la \textbf{programación evolutiva} en Estados Unidos,
 se desarrollaron en la segunda mitad de la década de los 60 en
 Alemania las \textbf{estrategias evolutivas} (\textit{evolution
   strategies}, ES). En 1964, tres estudiantes de la Technical University of
@@ -644,8 +644,8 @@ cada generación. \\
 
 \begin{description}
 \item[$(\mu + \lambda)$] Se seleccionan los $\mu$
-mejores individuos de entre los $\mu$ padres y los $\lambda$
-descendientes de cada generación.
+  mejores individuos de entre los $\mu$ padres y los $\lambda$
+  descendientes de cada generación.
 \item[$(\mu, \lambda)$] También se crean $\lambda$ descendientes en
   cada generación a partir de los $\mu$ padres. En este caso, sin
   embargo, los padres \textbf{no} pueden sobrevivir, seleccionándose
@@ -691,40 +691,40 @@ historia, la versión actual de una ES genérica puede verse resumida en la
 siguiente figura:
 
 \begin{figure}
-\begin{algorithm}[H]
-  \begin{algorithmic}[1]
-    \label{ES-alg}
-    \Procedure{ES}
-    \State $g := 0$
-    \State initialize $\left( P_p^{(0)} := \left\{ \left(y_m^{(0)},
+  \begin{algorithm}[H]
+    \begin{algorithmic}[1]
+      \label{ES-alg}
+      \Procedure {ES}\,
+      \State $g := 0$
+      \State initialize $\left( P_p^{(0)} := \left\{ \left(y_m^{(0)},
             s_m^{(0)}, F(y_m^{(0)}) \right), m = 1, ..., \mu \right\}
-    \right);$
-    \Repeat
+      \right);$
+      \Repeat
 
-    \For {$l := 1$ \textbf{To} $\lambda$}
-    \State $O_l :=$ marriage $\left( P_p^{(g)}, \rho \right);$
-    \State $s_l :=$ s\_recombination $\left( O_l \right);$
-    \State $y_l :=$ y\_recombination $\left( O_l \right);$
-    \State $\tilde{s_l}$ := s\_mutation $\left( s_l \right);$
-    \State $\tilde{y_l}$ := y\_mutation $\left( y_l, \tilde{s_l} \right);$
-    \State $\tilde{F}_l := F(\tilde{y_l})$
-    \EndFor
+      \For {$l := 1$ \textbf{To} $\lambda$}
+      \State $O_l :=$ marriage $\left( P_p^{(g)}, \rho \right);$
+      \State $s_l :=$ s\_recombination $\left( O_l \right);$
+      \State $y_l :=$ y\_recombination $\left( O_l \right);$
+      \State $\tilde{s_l}$ := s\_mutation $\left( s_l \right);$
+      \State $\tilde{y_l}$ := y\_mutation $\left( y_l, \tilde{s_l} \right);$
+      \State $\tilde{F}_l := F(\tilde{y_l})$
+      \EndFor
 
-    \State $P_0^{(g)} := \left\{ \left( \tilde{y_l}, \tilde{s_l},
+      \State $P_0^{(g)} := \left\{ \left( \tilde{y_l}, \tilde{s_l},
           \tilde{F_l} \right), l = 1, ..., \lambda \right\};$
 
-    \If {selection\_type $ == (\mu, \lambda)$}
-    \State $P_p^{(g+1)} := \mathrm{selection} \left( P_o^{(g)}, \mu \right);$
-    \ElsIf {selection\_type $ == (\mu + \lambda)$}
-    \State $P_p^{(g+1)} := \mathrm{selection} \left( P_o^{(g)}, P_p^{(g)} \mu \right);$
-    \EndIf
+      \If {selection\_type $ == (\mu, \lambda)$}
+      \State $P_p^{(g+1)} := \mathrm{selection} \left( P_o^{(g)}, \mu \right);$
+      \ElsIf {selection\_type $ == (\mu + \lambda)$}
+      \State $P_p^{(g+1)} := \mathrm{selection} \left( P_o^{(g)}, P_p^{(g)} \mu \right);$
+      \EndIf
 
-    \State $g := g + 1$
+      \State $g := g + 1$
 
-    \Until termination condition
-    \EndProcedure
-  \end{algorithmic}
-\end{algorithm}
+      \Until termination condition
+      \EndProcedure
+    \end{algorithmic}
+  \end{algorithm}
   \caption{Pseudocódigo del $\left( \mu / \rho, \overset{+}{,} \lambda \right)$-ES \cite{paper-es-salva}}
 \end{figure}
 
