@@ -842,7 +842,7 @@ Esta estrategia genera individuos de profundidad variable no mayor que
 Esta estrategia, a diferencia de grow, garantiza que todos los
 individuos tienen la misma profundidad, aunque el número de nodos es
 variable. Aquí también se necesita especificar una profundidad \(m\),
-y el proceso es el siguiente:
+y el proceso es el siguiente:\\
 
 Partiendo de la raíz, cada nodo con una profundidad menor que \(m\)
 , se convierte en una función aleatoria. Si el nodo tiene profundidad
@@ -864,17 +864,17 @@ población con una gran diversidad.
 
 Al igual que ocurre en los algoritmos genéticos, una vez que la
 población esta inicializada, los individuos necesitan ser evaluados
-para saber lo buenos o malos que son. La función fitness mas
+para saber lo buenos o malos que son. La función fitness más
 común es aquella que se adapte de forma más natural al problema que se
 plantee. Un ejemplo sería el problema de clasificación donde la
-función fitness mas natural sería el número de aciertos.
+función fitness más natural sería el número de aciertos.
 
 \subsection{Operadores}
 
 Análogamente a los algoritmos genéticos, la programación genética
-cuenta con operadores de selección, cruce y mutación.Actualmente se
+cuenta con operadores de selección, cruce y mutación. Actualmente se
 consideran otras operaciones como la edición, permutación o el
-encapsulamiento , aunque la mayoria de ellas fueron ignoradas por Koza
+encapsulamiento, aunque la mayoría de ellas fueron ignoradas por Koza
 en sus primeros trabajos.
 
 \subsubsection{Selección}
@@ -883,7 +883,7 @@ Para la selección se utilizan los mecanismos habituales de los
 algoritmos genéticos, en el caso de la programación genética, Koza
 permitía que un 10\% de la población se pudiese reproducir además del
 proceso de selección habitual. La función de selección es la encargada
-de elegir que individuo se reproduce, cuya reproducción no es mas que
+de elegir que individuo se reproduce, cuya reproducción no es más que
 elegir a ese individuo e introducir una copia de él mismo en la
 población, si la función fitness es fija, la reproducción tiene un
 efecto significativo en el tiempo ya que un individuo generado por
