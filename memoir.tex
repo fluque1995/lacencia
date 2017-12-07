@@ -245,6 +245,30 @@ siguiente figura:
 \caption{Pseudocódigo del $(\mu / \rho, {+}\over{,} \lambda)$-ES \cite{paper-es-salva}}
 \end{figure}
 
+En la notación actual, las $(\mu / \rho {+}\over{,} \lambda)$ ES consideran $\mu$ padres en cada generación, escogiéndose $\lambda$ subconjuntos de $\rho$ individuos para dar, cada uno de ellos, uno de los $\lambda$ descendientes. Como se había discutido previamente, en la versión ``$+$'' tanto los padres como la prole pueden pasar a la siguiente generación, mientras que en la versión ``,'' sólo los descendientes pueden sobrevivir. \\
+
+La descripción del pseudocódigo del algoritmo es como sigue:
+
+\begin{enumerate}
+\item En la primera generación ($g = 0$) se inicializa la población de padres (de qué forma concreta dependerá de cada problema).
+\item A continuación entramos en el bucle principal
+  \begin{enumerate}
+  \item Se comienza generando los descendientes de la generación actual. Cada iteración genera un nuevo vástago.
+    \begin{enumerate}
+    \item En primer lugar, el paso de la maridación (\textit{marriage}) selecciona una \textit{familia} de padres $O_l$ de tamaño $\rho$. Esta selección es completamente aleatoria, a diferencia de los algoritmos genéticos en los que se favorece la selección de los mejores padres.
+    \item Más tarde le llega el turno a la recombinación, tanto de las características de las soluciones (\textit{object parameters}) como de las de la estrategia (\textit{strategy parameters}). De nuevo, cómo se recombine la información de cada padre dependerá de una implementación a otra y no existe una forma óptima.
+    \item Por último, se mutan los \textit{strategy parameters} obtenidos de la recombinación y, sólo entonces, las características de la solución con los nuevos \textit{strategy parameters} obtenidos. Finalmente se calcula la bondad de la nueva solución obtenida mediante la función objetivo.
+    \end{enumerate}
+  \item Una vez generados todos los descendientes, se distingue entre el esquema de  selección $(\mu, \lambda)$ y $(\mu + \lambda)$:
+    \begin{enumerate}
+    \item En el primer caso se seleccionan los $\mu$ descendientes
+    \item En el segundo caso se seleccionan los $\mu$ mejores individuos de entre los padres ($P_p^{(g)}$) y los descendientes ($P_o^{(g)}$).
+    \end{enumerate}
+  \item Para finalizar se actualiza la generación actual.
+  \item El bucle principal se repetirá mientras no se alcance la condición de parada que, de nuevo, depende en gran medida de la casuística concreta del problema.
+  \end{enumerate}
+\end{enumerate}
+
 \section{Programación genética}
 
 \section{Referencias}
