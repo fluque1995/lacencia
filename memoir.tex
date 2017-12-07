@@ -35,7 +35,7 @@
 
 \begin{document}
 \maketitle
-\begin{center}  
+\begin{center}
   \includegraphics[scale=0.35]{escudo.png}
 \end{center}
 
@@ -395,7 +395,7 @@ difusión de los algoritmos genéticos.\\
 
 El gran crecimiento de la comunidad desembocó en la creación de la
 Sociedad Internacional de Algoritmos Genéticos (ISGA) en 1989. A
-partir de entonces el desarrollo de los algoritmos genéticos 
+partir de entonces el desarrollo de los algoritmos genéticos
 presenta un crecimiento rápido y desordenado, sin seguir ningún
 estándar, y utilizados también para optimizar problemas de naturaleza
 real. En consecuencia, los 90 fueron un periodo de tremendo
@@ -569,9 +569,9 @@ relevantes los trabajos de Thomas Bäck entre los años 1993 y
 principales exponentes de la computación evolutiva a día de hoy.\\
 
 Después de la primera mitad de los 90, se diversificaron mucho los
-esfuerzos en la aplicación de estas técnicas a la resolución de 
+esfuerzos en la aplicación de estas técnicas a la resolución de
 problemas, apareciendo aplicaciones de tratamiento de imagen,
-o el estudio de sistemas difusos. Finalmente, la aplicación que se 
+o el estudio de sistemas difusos. Finalmente, la aplicación que se
 ha alzado como principal de la programación evolutiva es la del
 entrenamiento de redes neuronales.
 
@@ -776,14 +776,14 @@ genético orientado a la evolución de programas, seguido de una
 publicación en la International Joint Conference on Artificial
 Inteligence. Koza ha sido el exponente principal de la programación
 genética aplicando ésta a problemas complejos de búsqueda.
-En la década de 1990, la programación genética se aplicó 
-principalmente para resolver problemas sencillos debido a su alto 
+En la década de 1990, la programación genética se aplicó
+principalmente para resolver problemas sencillos debido a su alto
 coste computacional.\\
 
-Recientemente la programación genética ha cobrado protagonismo debido 
+Recientemente la programación genética ha cobrado protagonismo debido
 a los resultados positivos que ha mostrado en áreas como la computación
 cuántica, ordenamiento y búsqueda gracias a la potencia de cómputo de
-la que disponemos actualmente. Una de las grandes metas de la ciencia 
+la que disponemos actualmente. Una de las grandes metas de la ciencia
 de la computación es, dado un problema, que la máquina sea capaz de
 construir un programa capaz de resolverlo, y la programación genética
 muestra suficiente potencial para conseguirlo en un futuro.\\
@@ -791,8 +791,8 @@ muestra suficiente potencial para conseguirlo en un futuro.\\
 
 \subsection {Creación de la población}
 
-Cada individuo se representa mediante una estructura de árbol, donde 
-los nodos no terminales representan funciones cuyos hijos son los 
+Cada individuo se representa mediante una estructura de árbol, donde
+los nodos no terminales representan funciones cuyos hijos son los
 parámetros que necesita la función como argumento, esto supone un
 cambio respecto a los algoritmos genéticos donde los individuos se
 representan mediante estructuras lineales como valores reales o
@@ -806,13 +806,13 @@ cadenas de bits.
 \end{figure}
 
 
-La elección de los genes disponibles es una tarea importante 
-ya que una mala selección podría causar que no evolucione 
+La elección de los genes disponibles es una tarea importante
+ya que una mala selección podría causar que no evolucione
 la solución.\\
 
-Una vez que los genes han sido seleccionados, se genera una 
-población de individuos de forma aleatoria y sin repetición 
-como ocurre con los algoritmos genéticos. Koza desarrolló 
+Una vez que los genes han sido seleccionados, se genera una
+población de individuos de forma aleatoria y sin repetición
+como ocurre con los algoritmos genéticos. Koza desarrolló
 tres técnicas para ello: grow,full y ramped-half-and-half.
 
 
@@ -846,10 +846,10 @@ y el proceso es el siguiente:
 
 Partiendo de la raíz, cada nodo con una profundidad menor que \(m\)
 , se convierte en una función aleatoria. Si el nodo tiene profundidad
-\(m\) entonces se convierte en un terminal aleatorio. Todas las funciones 
-tienen un número de hijos igual a la cantidad de parámetros que necesitan 
-como argumento. Con esta estrategia te aseguras que todos los individuos 
-tienen una profundidad \(m\) aunque por contra la variación es menor 
+\(m\) entonces se convierte en un terminal aleatorio. Todas las funciones
+tienen un número de hijos igual a la cantidad de parámetros que necesitan
+como argumento. Con esta estrategia te aseguras que todos los individuos
+tienen una profundidad \(m\) aunque por contra la variación es menor
 que con la estrategia grow.\\
 
 \subsubsection{Ramped-half-and-half}
@@ -891,8 +891,8 @@ reproducción tendrá el mismo valor fitness que su padre.
 
 \subsubsection{Cruce}
 
-El proceso del operador de cruce es similar al de los algoritmos genéticos, 
-en este caso generamos aleatoriamente una arista a cada padre y se 
+El proceso del operador de cruce es similar al de los algoritmos genéticos,
+en este caso generamos aleatoriamente una arista a cada padre y se
 intercambian los subárboles generando así dos hijos nuevos.\\
 
 Algunas consideraciones a tener en cuenta pueden ser la de no efectuar
@@ -938,20 +938,20 @@ explicado en la sección.
 
 \section{Conclusión}
 
-En este trabajo hemos visto desde un punto de vista histórico cómo aparecieron las 
-metaheurísticas para resolver problemas que resultaban demasiado complejos de resolver 
-por métodos exactos, por ejemplo, problemas de optimización, ordenación o búsqueda. 
-Además hemos visto como debido a la falta de medios para comunicarse, aunque con ligeras 
-diferencias, surgen estrategias muy parecidas, casi al mismo tiempo, como son los algoritmos 
-genéticos y las estrategias evolutivas en Estados Unidos y Alemania respectivamente, y la importancia 
-que han tenido en la ciencia de la computación a pesar de que sus comienzos estuvieron 
+En este trabajo hemos visto desde un punto de vista histórico cómo aparecieron las
+metaheurísticas para resolver problemas que resultaban demasiado complejos de resolver
+por métodos exactos, por ejemplo, problemas de optimización, ordenación o búsqueda.
+Además hemos visto como debido a la falta de medios para comunicarse, aunque con ligeras
+diferencias, surgen estrategias muy parecidas, casi al mismo tiempo, como son los algoritmos
+genéticos y las estrategias evolutivas en Estados Unidos y Alemania respectivamente, y la importancia
+que han tenido en la ciencia de la computación a pesar de que sus comienzos estuvieron
 cargados de escepticismo por la falta de una fundamentación teórica que probase su eficacia. \\
 
-Las aplicaciones de estas estrategias son muy extensas como hemos podido ver a lo largo 
-del trabajo, quedando probada su eficacia con el paso del tiempo y el consecuente aumento 
-de recursos y capacidad de cómputo. Esto, llevó a que surgiese la programación genética 
-posteriormente, como una aplicación de los algoritmos genéticos, con la meta de conseguir el 
-programa mas óptimo para resolver un problema dado de forma automática, además de las futuras 
+Las aplicaciones de estas estrategias son muy extensas como hemos podido ver a lo largo
+del trabajo, quedando probada su eficacia con el paso del tiempo y el consecuente aumento
+de recursos y capacidad de cómputo. Esto, llevó a que surgiese la programación genética
+posteriormente, como una aplicación de los algoritmos genéticos, con la meta de conseguir el
+programa mas óptimo para resolver un problema dado de forma automática, además de las futuras
 aplicaciones en campos como la computación cuántica.
 
 \section{Referencias}
@@ -960,6 +960,9 @@ aplicaciones en campos como la computación cuántica.
 % https://es.wikipedia.org/wiki/Programaci%C3%B3n_gen%C3%A9tica
 % http://sci2s.ugr.es/sites/default/files/files/Teaching/GraduatesCourses/Bioinformatica/Tema%2013%20-%20PG.pdf
 % Koza, John R. 1992. Genetic Programming: On the Programming of Computers by Means of Natural Selection. Cambridge, MA: The MIT Press.
+% Evolution strategies -- A comprehensive introduction. Hans-Georg Beyer, Hans-Paul Schwefel (2002)
+% ^^ necesito que se llame paper-es-salva para mi cita ^^
+% Handbook of Evolutionary Computation. Kenneth De Jong, Lawrence Fogel, Hans-Paul Schwefel (1997)
 
 
 
