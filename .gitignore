@@ -5,5 +5,9 @@
 *.toc
 *.tex~
 *.bib~
+*.bbl
+*.bcf
+*.blg
+*.xml
 auto/
 .gitignore~
