@@ -1,4 +1,4 @@
-\documentclass[12pt]{article} \usepackage[utf8x]{inputenc}
+\documentclass[12pt]{article} \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{hhline}
@@ -10,12 +10,13 @@
 \usepackage{listings}
 \usepackage{algorithm} % http://ctan.org/pkg/algorithms
 \usepackage{algpseudocode} % http://ctan.org/pkg/algorithmicx
+\usepackage{biblatex}
 
+\bibliography{bibliography}
+
+\renewcommand{\contentsname}{Índice}
 
 \usepackage[hidelinks]{hyperref}
-
-
-
 
 \title{
   Historia de las Matemáticas\\
@@ -23,15 +24,12 @@
   Algoritmos Genéticos, Programación Evolutiva, Estrategias de
   Evolución y Programación Genética.  }
 
-
 \author{
   Francisco Luque Sánchez \\
   Ignacio Mas Mesa \\
   Miguel Morales Castillo \\
   María del Mar Ruiz Martín \\
 }
-
-
 
 \begin{document}
 \maketitle
@@ -631,10 +629,10 @@ ratios de convergencia de las soluciones en distintos casos,
 obteniendo la famosa \textit{regla del quinto} (\textit{$\frac 1 5$th
   rule}) y trató de optimizar el algoritmo aproximándolo más a lo que
 ocurría en la naturaleza, considerando una \textit{población} de
-soluciones en cada paso, introduciendo el paso de la
-\textit{recombinación} de soluciones además de la mutación y dando
-lugar a lo que, en la notación de Schwefel se denominó $(\mu + 1)$ ES
-($\mu$ padres, $1$ hijo). Nótese que esto no habría sido posible en
+soluciones en cada generación e introduciendo el paso de la
+\textit{recombinación} de soluciones además de la mutación, dando
+lugar a lo que, en la notación de Schwefel, se denominó $(\mu + 1)$ ES
+($\mu$ padres, $1$ hijo). Nótese que este nuevo paso no habría sido posible en
 las $(1 + 1)$ ES primigenias. \\
 
 No obstante, aun esta modificación no fue suficiente en términos de
@@ -672,16 +670,16 @@ eficiencia por varios motivos.
   análisis por parte de Rechenberg, Schwefel y otros sobre su
   algoritmo.
 \item Aun aceptando la posibilidad de que la $(1 + 1)$ ES fuera un
-  artefacto útil en ciertos casos, la incorporación de las $(\lambda +
-  \mu)$ ES no tuvo muy buena acogida. Por un lado, considerar $\mu >
+  artefacto útil en ciertos casos, la incorporación de las $(\mu +
+  \lambda)$ ES no tuvo muy buena acogida. Por un lado, considerar $\mu >
   1$ individuos en la población se consideraba innecesario, pues
   simplemente aumentaba los tiempos de cálculo arrastrando individuos
   poco (menos) prometedores. Por otro, $\lambda > 1$ parecía no
   explotar inmediatamente el conocimiento obtenido en generaciones previas.
 \end{itemize}
 
-Si bien la crítica referida a los $\lambda > 1$ padres podía ser
-rebatida gracias a la computación en paralelo de los descendientes, el
+Si bien la crítica referida a los $\lambda > 1$ descendientes podía ser
+rebatida gracias a la computación en paralelo de los vástagos, el
 contraargumento no tenía mucho peso pues los ordenadores con
 arquitecturas capaces de procesamiento en paralelo no existían ni se
 los esperaba en el futuro próximo. \\
@@ -690,7 +688,7 @@ Finalmente, tras todos los cambios introducidos a lo largo de su
 historia, la versión actual de una ES genérica puede verse resumida en la
 siguiente figura:
 
-\begin{figure}
+\begin{figure}[H]
   \begin{algorithm}[H]
     \begin{algorithmic}[1]
       \label{ES-alg}
@@ -725,10 +723,10 @@ siguiente figura:
       \EndProcedure
     \end{algorithmic}
   \end{algorithm}
-  \caption{Pseudocódigo del $\left( \mu / \rho, \overset{+}{,} \lambda \right)$-ES \cite{paper-es-salva}}
+  \caption{Pseudocódigo del $\left( \mu / \rho \ \overset{+}{,} \ \lambda \right)$-ES \cite{beyer-es}}
 \end{figure}
 
-En la notación actual, las $(\mu / \rho \overset{+}{,} \lambda)$ ES consideran $\mu$ padres en cada generación, escogiéndose $\lambda$ subconjuntos de $\rho$ individuos para dar, cada uno de ellos, uno de los $\lambda$ descendientes. Como se había discutido previamente, en la versión ``$+$'' tanto los padres como la prole pueden pasar a la siguiente generación, mientras que en la versión ``,'' sólo los descendientes pueden sobrevivir. \\
+En la notación actual, las $(\mu / \rho \ \overset{+}{,} \ \lambda)$ ES consideran $\mu$ padres en cada generación, escogiéndose $\lambda$ subconjuntos de $\rho$ individuos para dar, cada uno de ellos, uno de los $\lambda$ descendientes. Como se había discutido previamente, en la versión ``$+$'' tanto los padres como la prole pueden pasar a la siguiente generación, mientras que en la versión ``,'' sólo los descendientes pueden sobrevivir. \\
 
 La descripción del pseudocódigo del algoritmo es como sigue:
 
@@ -751,6 +749,8 @@ La descripción del pseudocódigo del algoritmo es como sigue:
   \item El bucle principal se repetirá mientras no se alcance la condición de parada que, de nuevo, depende en gran medida de la casuística concreta del problema.
   \end{enumerate}
 \end{enumerate}
+
+Conviene notar que los mentados \textit{strategy parameters} constituyen la principal diferencia entre las estrategias evolutivas y los algoritmos genéticos u otras variantes de los algoritmos evolutivos. Estos controlan el tamaño de las mutaciones que sufre cada individuo, de forma que este tamaño también sea adaptativo, como una suerte de enfriamiento simulado implícito. Así, al recombinar padres para procrear un descendiente, no sólo se combinarán las características/parámetros propios del problema sino también los parámetros asociados a las mutaciones de los distintos factores; y, del mismo modo, las mutaciones también se aplicarán a los propios \textit{strategy parameters}. De este modo el propio algoritmo es capaz de autorregular lo que en otras aproximaciones a este tipo de técnicas suele convertirse en un arte más que una ciencia, es decir, el tamaño de las mutaciones. \\
 
 \section{Programación genética}
 
@@ -954,21 +954,12 @@ posteriormente, como una aplicación de los algoritmos genéticos, con la meta d
 programa mas óptimo para resolver un problema dado de forma automática, además de las futuras
 aplicaciones en campos como la computación cuántica.
 
+\newpage
+
 \section{Referencias}
-% https://www.cs.montana.edu/~bwall/cs580/introduction_to_gp.pdf
-% http://geneticprogramming.com/history/
-% https://es.wikipedia.org/wiki/Programaci%C3%B3n_gen%C3%A9tica
-% http://sci2s.ugr.es/sites/default/files/files/Teaching/GraduatesCourses/Bioinformatica/Tema%2013%20-%20PG.pdf
-% Koza, John R. 1992. Genetic Programming: On the Programming of Computers by Means of Natural Selection. Cambridge, MA: The MIT Press.
-% Evolution strategies -- A comprehensive introduction. Hans-Georg Beyer, Hans-Paul Schwefel (2002)
-% ^^ necesito que se llame paper-es-salva para mi cita ^^
-% Handbook of Evolutionary Computation. Kenneth De Jong, Lawrence Fogel, Hans-Paul Schwefel (1997)
-
-
-
-%Evolutionary  Computation:  Comments on  the  History  and  Current  State. Thomas  Bäck,  Ulrich  Hammel,  and  Hans-Paul  Schwefel. Abril, 1997
-%Genetic Algorithm, Wikipedia \url{https://en.wikipedia.org/wiki/Genetic_algorithm}
-%An Introduction to Genetic Algorithms. Melanie Mitchell. 1996
-
-
+\begingroup
+\renewcommand{\section}[2]{}
+\nocite{*}
+\printbibliography
+\endgroup
 \end{document}
