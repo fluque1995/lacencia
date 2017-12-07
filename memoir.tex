@@ -752,6 +752,8 @@ La descripción del pseudocódigo del algoritmo es como sigue:
   \end{enumerate}
 \end{enumerate}
 
+Conviene notar que los mentados \textit{strategy parameters} constituyen la principal diferencia entre las estrategias evolutivas y los algoritmos genéticos u otras variantes de los algoritmos evolutivos. Estos controlan el tamaño de las mutaciones que sufre cada individuo, de forma que este tamaño también sea adaptativo, como una suerte de enfriamiento simulado implícito. Así, al recombinar padres para procrear un descendiente, no sólo se combinarán las características/parámetros propios del problema sino también los parámetros asociados a las mutaciones de los distintos factores; y, del mismo modo, las mutaciones también se aplicarán a los propios \textit{strategy parameters}. De este modo el propio algoritmo es capaz de autorregular lo que en otras aproximaciones a este tipo de técnicas suele convertirse en un arte más que una ciencia, es decir, el tamaño de las mutaciones. \\
+
 \section{Programación genética}
 
 
