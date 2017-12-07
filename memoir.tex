@@ -1,4 +1,4 @@
-\documentclass[12pt]{article} \usepackage[utf8x]{inputenc}
+\documentclass[12pt]{article} \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{hhline}
@@ -10,12 +10,13 @@
 \usepackage{listings}
 \usepackage{algorithm} % http://ctan.org/pkg/algorithms
 \usepackage{algpseudocode} % http://ctan.org/pkg/algorithmicx
+\usepackage{biblatex}
 
+\bibliography{bibliography}
+
+\renewcommand{\contentsname}{Índice}
 
 \usepackage[hidelinks]{hyperref}
-
-
-
 
 \title{
   Historia de las Matemáticas\\
@@ -23,15 +24,12 @@
   Algoritmos Genéticos, Programación Evolutiva, Estrategias de
   Evolución y Programación Genética.  }
 
-
 \author{
   Francisco Luque Sánchez \\
   Ignacio Mas Mesa \\
   Miguel Morales Castillo \\
   María del Mar Ruiz Martín \\
 }
-
-
 
 \begin{document}
 \maketitle
@@ -690,7 +688,7 @@ Finalmente, tras todos los cambios introducidos a lo largo de su
 historia, la versión actual de una ES genérica puede verse resumida en la
 siguiente figura:
 
-\begin{figure}
+\begin{figure}[H]
   \begin{algorithm}[H]
     \begin{algorithmic}[1]
       \label{ES-alg}
@@ -725,7 +723,7 @@ siguiente figura:
       \EndProcedure
     \end{algorithmic}
   \end{algorithm}
-  \caption{Pseudocódigo del $\left( \mu / \rho, \overset{+}{,} \lambda \right)$-ES \cite{paper-es-salva}}
+  \caption{Pseudocódigo del $\left( \mu / \rho, \overset{+}{,} \lambda \right)$-ES \cite{beyer-es}}
 \end{figure}
 
 En la notación actual, las $(\mu / \rho \overset{+}{,} \lambda)$ ES consideran $\mu$ padres en cada generación, escogiéndose $\lambda$ subconjuntos de $\rho$ individuos para dar, cada uno de ellos, uno de los $\lambda$ descendientes. Como se había discutido previamente, en la versión ``$+$'' tanto los padres como la prole pueden pasar a la siguiente generación, mientras que en la versión ``,'' sólo los descendientes pueden sobrevivir. \\
@@ -954,21 +952,12 @@ posteriormente, como una aplicación de los algoritmos genéticos, con la meta d
 programa mas óptimo para resolver un problema dado de forma automática, además de las futuras
 aplicaciones en campos como la computación cuántica.
 
+\newpage
+
 \section{Referencias}
-% https://www.cs.montana.edu/~bwall/cs580/introduction_to_gp.pdf
-% http://geneticprogramming.com/history/
-% https://es.wikipedia.org/wiki/Programaci%C3%B3n_gen%C3%A9tica
-% http://sci2s.ugr.es/sites/default/files/files/Teaching/GraduatesCourses/Bioinformatica/Tema%2013%20-%20PG.pdf
-% Koza, John R. 1992. Genetic Programming: On the Programming of Computers by Means of Natural Selection. Cambridge, MA: The MIT Press.
-% Evolution strategies -- A comprehensive introduction. Hans-Georg Beyer, Hans-Paul Schwefel (2002)
-% ^^ necesito que se llame paper-es-salva para mi cita ^^
-% Handbook of Evolutionary Computation. Kenneth De Jong, Lawrence Fogel, Hans-Paul Schwefel (1997)
-
-
-
-%Evolutionary  Computation:  Comments on  the  History  and  Current  State. Thomas  Bäck,  Ulrich  Hammel,  and  Hans-Paul  Schwefel. Abril, 1997
-%Genetic Algorithm, Wikipedia \url{https://en.wikipedia.org/wiki/Genetic_algorithm}
-%An Introduction to Genetic Algorithms. Melanie Mitchell. 1996
-
-
+\begingroup
+\renewcommand{\section}[2]{}
+\nocite{*}
+\printbibliography
+\endgroup
 \end{document}
