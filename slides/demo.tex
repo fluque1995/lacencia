@@ -2,16 +2,6 @@
 
 \usetheme{metropolis}
 \usepackage{appendixnumberbeamer}
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[TS1,T1]{fontenc}
-\usepackage{array}
-\usepackage{graphicx}
-\usepackage{colortbl}
-\usepackage{caption}
-\usepackage{subcaption}
-
-\newcommand{\foo}{\color{gray}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
@@ -19,85 +9,98 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
-\usepackage{multicol}
-
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
-\title{Historia de los algoritmos inspirados en la evolución}
-\subtitle{Algoritmos genéticos, programación evolutiva, estrategias de evolución y programación genética}
+\title{Metropolis}
+\subtitle{A modern beamer theme}
 \date{\today}
-\author{
-  Francisco Luque Sánchez \\
-  Ignacio Mas Mesa \\
-  Miguel Morales Castillo \\
-  María del Mar Ruiz Martín
-}
-\institute{Universidad de Granada}
+\author{Matthias Vogelgesang}
+\institute{Center for modern beamer themes}
 % \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
 
 \begin{document}
 
 \maketitle
 
-\begin{frame}{Índice}
+\begin{frame}{Table of contents}
   \setbeamertemplate{section in toc}[sections numbered]
   \tableofcontents[hideallsubsections]
 \end{frame}
 
-\section{Introducción}
+\section{Introduction}
 
-\begin{frame}[fragile]{Metaheurísticas}
-  \begin{itemize}
-  \item Aparecen en los años 50 (Optimización estocástica por Robbins y Monro) \\
-  \item Resuelven problemas de optimización y búsqueda \\
-  \item Tienen inspiraciones en procesos naturales \\
-  \item Nos centraremos en las inspiradas en la evolución
-  \end{itemize}
+\begin{frame}[fragile]{Metropolis}
+
+  The \themename theme is a Beamer theme with minimal visual noise
+  inspired by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
+  Theme} by Benjamin Weiss.
+
+  Enable the theme by loading
+
+  \begin{verbatim}    \documentclass{beamer}
+    \usetheme{metropolis}\end{verbatim}
+
+  Note, that you have to have Mozilla's \emph{Fira Sans} font and XeTeX
+  installed to enjoy this wonderful typography.
+\end{frame}
+\begin{frame}[fragile]{Sections}
+  Sections group slides of the same topic
+
+  \begin{verbatim}    \section{Elements}\end{verbatim}
+
+  for which \themename provides a nice progress indicator \ldots
 \end{frame}
 
-\section{Programación evolutiva}
+\section{Titleformats}
 
-\begin{frame}[fragile]{Programación evolutiva}
-  \begin{multicols}{2}
-    ~\\
-    \begin{itemize}
-    \item Aparecen en 1964
-    \item Su inventor es Lawrence J. Fogel
-    \item Las utiliza para la predicción de series temporales
-    \end{itemize}
-    ~\\
-    \includegraphics[scale=.6]{imgs/Fogel}
-  \end{multicols}
+\begin{frame}{Metropolis titleformats}
+	\themename supports 4 different titleformats:
+	\begin{itemize}
+		\item Regular
+		\item \textsc{Smallcaps}
+		\item \textsc{allsmallcaps}
+		\item ALLCAPS
+	\end{itemize}
+	They can either be set at once for every title type or individually.
 \end{frame}
 
-\begin{frame}{Primera propuesta}
-  \begin{itemize}
-  \item Representación de la línea temporal como cadena de símbolos
-  \item Conjunto de autómatas finitos
-  \item Evaluación de la capacidad de predicción
-  \item Mutación de los autómatas (creación de la prole)
-  \item Competición por la supervivencia (sobreviven los más aptos)
-  \end{itemize}
-\end{frame}
+{
+    \metroset{titleformat frame=smallcaps}
+\begin{frame}{Small caps}
+	This frame uses the \texttt{smallcaps} titleformat.
 
-\begin{frame}{Evolución de la estrategia}
-  \begin{table}
-    \renewcommand\arraystretch{1.4}\arrayrulecolor{lightgray}
-    \begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{8cm}}
-      \addlinespace[1.5ex]
-      1969 & Aplicación a programas que juegan a juegos (Huntsinger)\\
-      1980 & Nuevas representaciones de la solución (Fogel)\\
-      1988 & Planificación de rutas (Fogel)\\
-      1989 & Problema de la mochila (Fogel)\\
-      1990 & Esquemas de adaptación de la evolución\\
-      1992 & Aplicaciones en robótica (Donnel y Andersen)\\
-      1995 & Diversificación del uso. Aplicación al entrenamiento de redes neuronales\\
-    \end{tabular}
-  \end{table}
+	\begin{alertblock}{Potential Problems}
+		Be aware, that not every font supports small caps. If for example you typeset your presentation with pdfTeX and the Computer Modern Sans Serif font, every text in smallcaps will be typeset with the Computer Modern Serif font instead.
+	\end{alertblock}
 \end{frame}
+}
 
-\section{Algoritmos genéticos}
+{
+\metroset{titleformat frame=allsmallcaps}
+\begin{frame}{All small caps}
+	This frame uses the \texttt{allsmallcaps} titleformat.
+
+	\begin{alertblock}{Potential problems}
+		As this titleformat also uses smallcaps you face the same problems as with the \texttt{smallcaps} titleformat. Additionally this format can cause some other problems. Please refer to the documentation if you consider using it.
+
+		As a rule of thumb: Just use it for plaintext-only titles.
+	\end{alertblock}
+\end{frame}
+}
+
+{
+\metroset{titleformat frame=allcaps}
+\begin{frame}{All caps}
+	This frame uses the \texttt{allcaps} titleformat.
+
+	\begin{alertblock}{Potential Problems}
+		This titleformat is not as problematic as the \texttt{allsmallcaps} format, but basically suffers from the same deficiencies. So please have a look at the documentation if you want to use it.
+	\end{alertblock}
+\end{frame}
+}
+
+\section{Elements}
 
 \begin{frame}[fragile]{Typography}
       \begin{verbatim}The theme provides sensible defaults to
@@ -290,86 +293,7 @@ or show \textbf{bold} results.\end{verbatim}
   Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
 \end{frame}
 
-\section{Estrategias evolutivas}
-
-\begin{frame}{Autores}
-
-  \begin{figure}[htp]
-    \begin{subfigure}
-      \includegrpahics{img/schwefel.jpg}
-      \caption{Hans-Paul Schwefel}
-    \end{subfigure}
-
-    \begin{subfigure}
-      \includegrpahics{img/rechenberg.jpg}
-      \caption{Ingo Rechenberg}
-    \end{subfigure}
-
-    \begin{subfigure}
-      \includegrpahics{img/bienert.jpg}
-      \caption{Peter Bienert}
-    \end{subfigure}
-  \end{figure}
-
-\end{frame}
-
-\begin{frame}{Introducción}
-  \begin{center}
-    Experimento en túneles de viento
-  \end{center}
-
-  \begin{itemize}
-  \item Técnicas clásicas
-  \item Técnicas estocásticas
-  \end{itemize}
-
-  \begin{center}
-    Nace la $(1 + 1) -$ ES
-  \end{center}
-\end{frame}
-
-\begin{frame}{Siguientes éxitos}
-  \begin{itemize}
-  \item Bienert construye un robot para automatizar los cálculos
-  \item Lichtfu{\ss} diseña una tubería
-  \item Diseño de una tobera supersónica
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Inconvenientes}
-  \begin{itemize}
-  \item Distribuciones binomiales
-  \item Convergencia prematura a óptimos locales
-  \end{itemize}
-
-  \begin{center}
-    Distribuciones normales
-  \end{center}
-\end{frame}
-
-\begin{frame}{Mejoras de Rechenberg}
-  \begin{itemize}
-  \item $\frac 1 5}$ \emph{th rule}
-  \item Recombinación y autoadaptación: $(\mu + 1) -$ ES
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Inconvenientes (II)}
-  \begin{itemize}[<+- | alert@+>]
-  \item Las $(\mu + 1) -$ ES tenían poca capacidad de autoadaptación.
-  \item Surgen las $\left( \mu \ \overset{+}{,} \ \lambda \right)$
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Críticas}
-  \begin{itemize}
-  \item Gran avance de los métodos numéricos en la década pasada
-  \item Críticas a $\mu > 1$ y $\lambda > 1$
-  \item Críticas a $(\mu, \lambda)$
-  \end{itemize}
-\end{frame}
-
-\section{Programación genética}
+\section{Conclusion}
 
 \begin{frame}{Summary}
 
@@ -404,7 +328,7 @@ or show \textbf{bold} results.\end{verbatim}
 
 \begin{frame}[allowframebreaks]{References}
 
-  \bibliography{bibliography}
+  \bibliography{demo}
   \bibliographystyle{abbrv}
 
 \end{frame}
