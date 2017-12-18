@@ -2,6 +2,8 @@
 
 \usetheme{metropolis}
 \usepackage{appendixnumberbeamer}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
@@ -12,37 +14,31 @@
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
-\title{Metropolis}
-\subtitle{A modern beamer theme}
+\title{Historia de los algoritmos inspirados en la evolución}
+\subtitle{Algoritmos genéticos, programación evolutiva, estrategias de evolución y programación genética}
 \date{\today}
-\author{Matthias Vogelgesang}
-\institute{Center for modern beamer themes}
+\author{
+  Francisco Luque Sánchez \\
+  Ignacio Mas Mesa \\
+  Miguel Morales Castillo \\
+  María del Mar Ruiz Martín
+}
+\institute{Universidad de Granada}
 % \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
 
 \begin{document}
 
 \maketitle
 
-\begin{frame}{Table of contents}
+\begin{frame}{Índice}
   \setbeamertemplate{section in toc}[sections numbered]
   \tableofcontents[hideallsubsections]
 \end{frame}
 
-\section{Introduction}
+\section{Introducción}
 
-\begin{frame}[fragile]{Metropolis}
-
-  The \themename theme is a Beamer theme with minimal visual noise
-  inspired by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
-  Theme} by Benjamin Weiss.
-
-  Enable the theme by loading
-
-  \begin{verbatim}    \documentclass{beamer}
-    \usetheme{metropolis}\end{verbatim}
-
-  Note, that you have to have Mozilla's \emph{Fira Sans} font and XeTeX
-  installed to enjoy this wonderful typography.
+\begin{frame}[fragile]{Metaheurísticas}
+  Aparecen 
 \end{frame}
 \begin{frame}[fragile]{Sections}
   Sections group slides of the same topic
@@ -52,7 +48,7 @@
   for which \themename provides a nice progress indicator \ldots
 \end{frame}
 
-\section{Titleformats}
+\section{Programación evolutiva}
 
 \begin{frame}{Metropolis titleformats}
 	\themename supports 4 different titleformats:
@@ -100,7 +96,7 @@
 \end{frame}
 }
 
-\section{Elements}
+\section{Algoritmos genéticos}
 
 \begin{frame}[fragile]{Typography}
       \begin{verbatim}The theme provides sensible defaults to
@@ -293,7 +289,23 @@ or show \textbf{bold} results.\end{verbatim}
   Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
 \end{frame}
 
-\section{Conclusion}
+\section{Estrategias de evolución}
+
+\begin{frame}{Summary}
+
+  Get the source of this theme and the demo presentation from
+
+  \begin{center}\url{github.com/matze/mtheme}\end{center}
+
+  The theme \emph{itself} is licensed under a
+  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
+  Attribution-ShareAlike 4.0 International License}.
+
+  \begin{center}\ccbysa\end{center}
+
+\end{frame}
+
+\section{Programación genética}
 
 \begin{frame}{Summary}
 
@@ -328,7 +340,7 @@ or show \textbf{bold} results.\end{verbatim}
 
 \begin{frame}[allowframebreaks]{References}
 
-  \bibliography{demo}
+  \bibliography{bibliography}
   \bibliographystyle{abbrv}
 
 \end{frame}

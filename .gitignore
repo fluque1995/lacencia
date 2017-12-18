@@ -9,5 +9,8 @@
 *.bcf
 *.blg
 *.xml
+*.nav
+*.snm
+*.vrb
 auto/
 .gitignore~
