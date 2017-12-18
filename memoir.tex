@@ -1,4 +1,4 @@
-\documentclass[12pt]{article} \usepackage[utf8x]{inputenc}
+\documentclass[12pt]{article} \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{hhline}
@@ -10,12 +10,13 @@
 \usepackage{listings}
 \usepackage{algorithm} % http://ctan.org/pkg/algorithms
 \usepackage{algpseudocode} % http://ctan.org/pkg/algorithmicx
+\usepackage{biblatex}
 
+\bibliography{bibliography}
+
+\renewcommand{\contentsname}{Índice}
 
 \usepackage[hidelinks]{hyperref}
-
-
-
 
 \title{
   Historia de las Matemáticas\\
@@ -23,15 +24,12 @@
   Algoritmos Genéticos, Programación Evolutiva, Estrategias de
   Evolución y Programación Genética.  }
 
-
 \author{
   Francisco Luque Sánchez \\
   Ignacio Mas Mesa \\
   Miguel Morales Castillo \\
   María del Mar Ruiz Martín \\
 }
-
-
 
 \begin{document}
 \maketitle
@@ -69,15 +67,14 @@ Las metaheurísticas aparecieron en los años 50 como respuesta a los
 problemas de optimización. Hasta ese momento, los ordenadores habían
 sido utilizados como herramientas de ayuda al cálculo, pero no se
 habían pensado como máquinas capaces de resolver problemas más
-complejos (needs further research). Cuando se intentaron implementar
-técnicas de optimización clásica para resolver problemas de búsqueda
-(derivación de funciones para el cálculo de extremos locales), se
-observó que para muchos problemas este enfoque no era suficiente
-(citation needed). Uno de los problemas que surgió fue que las
-funciones a optimizar tenían muchos extremos locales, infinitos en
-algunos casos. También se encontraron problemas en los que las
-funciones a optimizar no eran derivables, por lo que el enfoque
-clásico no podía
+complejos. Cuando se intentaron implementar técnicas de optimización
+clásica para resolver problemas de búsqueda (derivación de funciones
+para el cálculo de extremos locales), se observó que para muchos
+problemas este enfoque no era suficiente. Uno de los problemas que
+surgió fue que las funciones a optimizar tenían muchos extremos
+locales, infinitos en algunos casos. También se encontraron problemas
+en los que las funciones a optimizar no eran derivables, por lo que el
+enfoque clásico no podía
 ser aplicado.\\
 
 Empezaron a aparecer entonces intentos de resolución de problemas de
@@ -169,7 +166,11 @@ Tras estas aproximaciones, aparece en Míchigan en el año 1975 el
 paradigma más extendido dentro de la computación evolutiva. Se trata
 de los algoritmos genéticos, desarrollados y descritos por John H.
 Holland. En esta estrategia se introduce el concepto de cruce entre
-soluciones, en imitación al apareamiento entre especies animales.\\
+soluciones, en imitación al apareamiento entre especies animales.
+Realmente, Holland comenzó a trabajar en el tema en los años 60, haciendo
+su primera publicación al respecto en el año 1962, pero no es hasta el
+1975 cuando se populariza su uso, año en el que el propio Holland publica
+su libro \textit{Adaptation in Natural an Artificial Systems}.\\
 
 En años posteriores, a principios de los 80, aparecen nuevos modelos,
 que cambian el enfoque de los años anteriores, y empiezan a buscar
@@ -282,9 +283,9 @@ introducir explícitamente las nociones de cruce, o cualquier otro tipo
 de operadores de recombinación
 en el ámbito de los algoritmos evolutivos.\\
 
-En los próximos años, surgen figuras como Bagley, cuya tésis trata
+En los próximos años, surgen figuras como Bagley, cuya tesis trata
 sobre la aplicación de los algoritmos genéticos sobre la función de
-evaluación en programas que juegan a juegos, o la tésis de Cavicchio
+evaluación en programas que juegan a juegos, o la tesis de Cavicchio
 (1970) en la que trata los algoritmos genéticos desde una perspectiva
 de búsqueda adaptativa.  Introduce además el concepto de elitismo, con
 el que cada generación mantendrá la mejor solución obtenida hasta el
@@ -298,7 +299,7 @@ estudiantes. Será durante estos años cuando Holland, junto con algunos
 alumnos de doctorado desarrollará una
 función fitness con la que predecir la calidad de cada generación.\\
 
-En 1972 destaca la tésis de Frantz, en la que propone nuevas técnicas
+En 1972 destaca la tesis de Frantz, en la que propone nuevas técnicas
 de cruce,
 con lo que se conoce como operadores de cruce multipuntos.\\
 
@@ -333,15 +334,15 @@ esquemas de Holland.\\
 
 
 También en 1975, Kenneth De Jong, estudiante de doctorado de Holland,
-presenta su tésis doctoral, que será el primer estudio del uso de
+presenta su tesis doctoral, que será el primer estudio del uso de
 algoritmos genéticos para resolver problemas de optimización. Con el
 trabajo de Kenneth se pone de manifiesto la utilidad práctica de los
 algoritmos genéticos. Además establece un estándar a seguir con los
 mismos, y durante años cualquier estudio de calidad sobre algoritmos
 genéticos seguía las pautas marcadas por Kenneth y presentaba
-los benchmarks presentes en su tésis.\\
+los benchmarks presentes en su tesis.\\
 
-En dicha tésis, De Jong no solo estudia teóricamente el comportamiento
+En dicha tesis, De Jong no solo estudia teóricamente el comportamiento
 de los algoritmos genéticos, sino que también los estudia desde un
 punto de vista experimental. Además, pone de manifiesto el potencial
 que presentan los algoritmos genéticos para resolver problemas de
@@ -356,7 +357,7 @@ aplicación de los mismos, que empiezan a aplicarse en campos de
 ingeniería y optimización sobre funciones con domino en los enteros.\\
 
 A mediados de los 70 en otras universidades comienzan a estudiar los
-algoritmos genéticos, y comienzan a aparecer múltiples tésis
+algoritmos genéticos, y comienzan a aparecer múltiples tesis
 doctorales sobre los mismos, de las que se podrían destacar las de
 Bethke, Booker, y Goldberg. Sin embargo, el desarrollo de los
 algoritrmos genéticos continúa siendo muy lento, ya que la comunidad
@@ -690,7 +691,7 @@ Finalmente, tras todos los cambios introducidos a lo largo de su
 historia, la versión actual de una ES genérica puede verse resumida en la
 siguiente figura:
 
-\begin{figure}
+\begin{figure}[H]
   \begin{algorithm}[H]
     \begin{algorithmic}[1]
       \label{ES-alg}
@@ -725,7 +726,7 @@ siguiente figura:
       \EndProcedure
     \end{algorithmic}
   \end{algorithm}
-  \caption{Pseudocódigo del $\left( \mu / \rho \ \overset{+}{,} \ \lambda \right)$-ES \cite{paper-es-salva}}
+  \caption{Pseudocódigo del $\left( \mu / \rho \ \overset{+}{,} \ \lambda \right)$-ES \cite{beyer-es}}
 \end{figure}
 
 En la notación actual, las $(\mu / \rho \ \overset{+}{,} \ \lambda)$ ES consideran $\mu$ padres en cada generación, escogiéndose $\lambda$ subconjuntos de $\rho$ individuos para dar, cada uno de ellos, uno de los $\lambda$ descendientes. Como se había discutido previamente, en la versión ``$+$'' tanto los padres como la prole pueden pasar a la siguiente generación, mientras que en la versión ``,'' sólo los descendientes pueden sobrevivir. \\
@@ -844,13 +845,13 @@ Esta estrategia genera individuos de profundidad variable no mayor que
 Esta estrategia, a diferencia de grow, garantiza que todos los
 individuos tienen la misma profundidad, aunque el número de nodos es
 variable. Aquí también se necesita especificar una profundidad \(m\),
-y el proceso es el siguiente:
+y el proceso es el siguiente:\\
 
 Partiendo de la raíz, cada nodo con una profundidad menor que \(m\)
 , se convierte en una función aleatoria. Si el nodo tiene profundidad
 \(m\) entonces se convierte en un terminal aleatorio. Todas las funciones
 tienen un número de hijos igual a la cantidad de parámetros que necesitan
-como argumento. Con esta estrategia te aseguras que todos los individuos
+como argumento. Con esta estrategia, todos los individuos
 tienen una profundidad \(m\) aunque por contra la variación es menor
 que con la estrategia grow.\\
 
@@ -866,17 +867,17 @@ población con una gran diversidad.
 
 Al igual que ocurre en los algoritmos genéticos, una vez que la
 población esta inicializada, los individuos necesitan ser evaluados
-para saber lo buenos o malos que son. La función fitness mas
+para saber lo buenos o malos que son. La función fitness más
 común es aquella que se adapte de forma más natural al problema que se
 plantee. Un ejemplo sería el problema de clasificación donde la
-función fitness mas natural sería el número de aciertos.
+función fitness más natural sería el número de aciertos.
 
 \subsection{Operadores}
 
 Análogamente a los algoritmos genéticos, la programación genética
-cuenta con operadores de selección, cruce y mutación.Actualmente se
+cuenta con operadores de selección, cruce y mutación. Actualmente se
 consideran otras operaciones como la edición, permutación o el
-encapsulamiento , aunque la mayoria de ellas fueron ignoradas por Koza
+encapsulamiento, aunque la mayoría de ellas fueron ignoradas por Koza
 en sus primeros trabajos.
 
 \subsubsection{Selección}
@@ -885,7 +886,7 @@ Para la selección se utilizan los mecanismos habituales de los
 algoritmos genéticos, en el caso de la programación genética, Koza
 permitía que un 10\% de la población se pudiese reproducir además del
 proceso de selección habitual. La función de selección es la encargada
-de elegir que individuo se reproduce, cuya reproducción no es mas que
+de elegir que individuo se reproduce, cuya reproducción no es más que
 elegir a ese individuo e introducir una copia de él mismo en la
 población, si la función fitness es fija, la reproducción tiene un
 efecto significativo en el tiempo ya que un individuo generado por
@@ -924,12 +925,11 @@ diversidad.
 
 \subsection{Finalización}
 
-Como conclusión a esta sección añadir que el reemplazo se realiza
+Como conclusión a esta sección, añadir que el reemplazo se realiza
 sustituyendo la población anterior por la nueva, y el proceso se
-repite hasta cumplir el criterio de parada al igual que ocurre en los
-algoritmos genéticos, el programa elegido será el mejor de la
-población final. El siguiente diagrama de flujo resume todo lo
-explicado en la sección.
+repite hasta cumplir el criterio de parada, cuando se seleccionará 
+como solución al mejor programa de la población final.
+ El siguiente diagrama de flujo resume todo lo explicado en la sección.
 
 \begin{figure}[H]
   \centering
@@ -957,20 +957,9 @@ programa mas óptimo para resolver un problema dado de forma automática, ademá
 aplicaciones en campos como la computación cuántica.
 
 \section{Referencias}
-% https://www.cs.montana.edu/~bwall/cs580/introduction_to_gp.pdf
-% http://geneticprogramming.com/history/
-% https://es.wikipedia.org/wiki/Programaci%C3%B3n_gen%C3%A9tica
-% http://sci2s.ugr.es/sites/default/files/files/Teaching/GraduatesCourses/Bioinformatica/Tema%2013%20-%20PG.pdf
-% Koza, John R. 1992. Genetic Programming: On the Programming of Computers by Means of Natural Selection. Cambridge, MA: The MIT Press.
-% Evolution strategies -- A comprehensive introduction. Hans-Georg Beyer, Hans-Paul Schwefel (2002)
-% ^^ necesito que se llame paper-es-salva para mi cita ^^
-% Handbook of Evolutionary Computation. Kenneth De Jong, Lawrence Fogel, Hans-Paul Schwefel (1997)
-
-
-
-%Evolutionary  Computation:  Comments on  the  History  and  Current  State. Thomas  Bäck,  Ulrich  Hammel,  and  Hans-Paul  Schwefel. Abril, 1997
-%Genetic Algorithm, Wikipedia \url{https://en.wikipedia.org/wiki/Genetic_algorithm}
-%An Introduction to Genetic Algorithms. Melanie Mitchell. 1996
-
-
+\begingroup
+\renewcommand{\section}[2]{}
+\nocite{*}
+\printbibliography
+\endgroup
 \end{document}
