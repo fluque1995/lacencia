@@ -289,20 +289,83 @@ or show \textbf{bold} results.\end{verbatim}
   Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
 \end{frame}
 
-\section{Estrategias de evolución}
+\section{Estrategias evolutivas}
 
-\begin{frame}{Summary}
+\begin{frame}{Autores}
 
-  Get the source of this theme and the demo presentation from
+  \begin{figure}[htp]
+    \begin{subfigure}
+      \includegrpahics{img/schwefel.jpg}
+      \caption{Hans-Paul Schwefel}
+    \end{subfigure}
 
-  \begin{center}\url{github.com/matze/mtheme}\end{center}
+    \begin{subfigure}
+      \includegrpahics{img/rechenberg.jpg}
+      \caption{Ingo Rechenberg}
+    \end{subfigure}
 
-  The theme \emph{itself} is licensed under a
-  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
-  Attribution-ShareAlike 4.0 International License}.
+    \begin{subfigure}
+      \includegrpahics{img/bienert.jpg}
+      \caption{Peter Bienert}
+    \end{subfigure}
+  \end{figure}
 
-  \begin{center}\ccbysa\end{center}
+\end{frame}
 
+\begin{frame}{Introducción}
+  \begin{center}
+    Experimento en túneles de viento
+  \end{center}
+
+  \begin{itemize}
+  \item Técnicas clásicas
+  \item Técnicas estocásticas
+  \end{itemize}
+
+  \begin{center}
+    Nace la $(1 + 1) -$ ES
+  \end{center}
+\end{frame}
+
+\begin{frame}{Siguientes éxitos}
+  \begin{itemize}
+  \item Bienert construye un robot para automatizar los cálculos
+  \item Lichtfu{\ss} diseña una tubería
+  \item Diseño de una tobera supersónica
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Inconvenientes}
+  \begin{itemize}
+  \item Distribuciones binomiales
+  \item Convergencia prematura a óptimos locales
+  \end{itemize}
+
+  \begin{center}
+    Distribuciones normales
+  \end{center}
+\end{frame}
+
+\begin{frame}{Mejoras de Rechenberg}
+  \begin{itemize}
+  \item $\frac 1 5}$ \emph{th rule}
+  \item Recombinación y autoadaptación: $(\mu + 1) -$ ES
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Inconvenientes (II)}
+  \begin{itemize}[<+- | alert@+>]
+  \item Las $(\mu + 1) -$ ES tenían poca capacidad de autoadaptación.
+  \item Surgen las $\left( \mu \ \overset{+}{,} \ \lambda \right)$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Críticas}
+  \begin{itemize}
+  \item Gran avance de los métodos numéricos en la década pasada
+  \item Críticas a $\mu > 1$ y $\lambda > 1$
+  \item Críticas a $(\mu, \lambda)$
+  \end{itemize}
 \end{frame}
 
 \section{Programación genética}
