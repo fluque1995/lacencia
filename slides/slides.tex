@@ -19,7 +19,7 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
-\usepackage{multicol}
+\usepackage{multicol, multirow}
 
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
@@ -109,25 +109,14 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{Ciclo Evolutivo}
-    \includegraphics[scale=.28]{imgs/ciclo_evolucion}
-\end{frame}
 
 
 \begin{frame}[fragile]{Ciclo Evolutivo}
     \begin{figure}
-      \includegraphics[scale=.34]{imgs/ciclo_evolucion_3}
+    \includegraphics[scale=.34]{imgs/ciclo_evolucion_2_no_background}
       \caption*{\url{http://www.jade-cheng.com/au/coalhmm/optimization/}}
     \end{figure}
 \end{frame}
-
-
-\begin{frame}[fragile]{Ciclo Evolutivo}
-    Aparece el operador de cruce en los algoritmos Evolutivos
-
-    \includegraphics[scale=.45]{imgs/chromosome_crossover}
-\end{frame}
-
 
 
 
@@ -136,16 +125,17 @@
     \renewcommand\arraystretch{1.4}\arrayrulecolor{lightgray}
     \begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{8cm}}
       \addlinespace[1.5ex]
-      1962 & Nacen los AGs en el paper de Holand\\
-      1970's & Tesis de Bagley, Cavicchio y Frantz. Elitismo y Multicruce\\
-      1975 & ``Adaptation in Natural and Artificial Systems'' (Holland). Teorema de los esquemas. Tesis de Kenneth De Jong\\
+      1962 & Nacen los Algoritmos Genéticos de mano de Holand\\
+      1970's & Tesis de Bagley, Cavicchio y Frantz. Elitismo, mutación adaptativa y multicruce\\
+      1975 & ``Adaptation in Natural and Artificial Systems'' (Holland)\\
+           &  Teorema de los esquemas\\
+           &  Tesis de Kenneth De Jong \\
       1980's & Aplicación en problemas de ingeniería y optimización\\
-      1987 & ``Genetic Algorithms in Search, Optimization, and Machine Learning'' (Golsberg)\\
+      1987 & ``Genetic Algorithms in Search, Optimization, and Machine Learning'' (Goldberg)\\
       1990's & Desaparición del operador de inversión y aplicación en problemas de ámbito real\\
     \end{tabular}
   \end{table}
 \end{frame}
-
 
 \begin{frame}{Evolución de la comunidad de los Algoritmos Genéticos}
   \begin{table}
@@ -158,7 +148,6 @@
       1981 & ``An Interisciplinary Workshop in Adaptive Systems '' (Míchigan)\\
       1985 & Primera Conferencia Internacional de Algoritmos Genéticos (Pittsburgh)\\
       1989 & Creación de la Sociedad Internacional de Algoritmos Genéticos (ISGA)\\
-      1990's & Desaparición del operador de inversión\\
     \end{tabular}
   \end{table}
 \end{frame}
@@ -273,42 +262,8 @@
   
 \end{frame}
 
-\begin{frame}{Summary}
-
-  Get the source of this theme and the demo presentation from
-
-  \begin{center}\url{github.com/matze/mtheme}\end{center}
-
-  The theme \emph{itself} is licensed under a
-  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
-  Attribution-ShareAlike 4.0 International License}.
-
-  \begin{center}\ccbysa\end{center}
-
-\end{frame}
-
 \begin{frame}[standout]
-  Questions?
-\end{frame}
-
-\appendix
-
-\begin{frame}[fragile]{Backup slides}
-  Sometimes, it is useful to add slides at the end of your presentation to
-  refer to during audience questions.
-
-  The best way to do this is to include the \verb|appendixnumberbeamer|
-  package in your preamble and call \verb|\appendix| before your backup slides.
-
-  \themename will automatically turn off slide numbering and progress bars for
-  slides in the appendix.
-\end{frame}
-
-\begin{frame}[allowframebreaks]{References}
-
-  \bibliography{bibliography}
-  \bibliographystyle{abbrv}
-
+  ¿Preguntas?
 \end{frame}
 
 \end{document}
