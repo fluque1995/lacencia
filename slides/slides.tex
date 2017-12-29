@@ -19,7 +19,7 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
-\usepackage{multicol}
+\usepackage{multicol, multirow}
 
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
@@ -67,7 +67,11 @@
     \item Las utiliza para la predicción de series temporales
     \end{itemize}
     ~\\
-    \includegraphics[scale=.6]{imgs/Fogel}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=.5]{imgs/Fogel}
+      \caption{Lawrence J. Fogel (\footnotesize{\url{http://ethw.org/w/images/7/7f/Fogel.jpg})}}
+    \end{figure}
   \end{multicols}
 \end{frame}
 
@@ -99,196 +103,60 @@
 
 \section{Algoritmos genéticos}
 
-\begin{frame}[fragile]{Typography}
-      \begin{verbatim}The theme provides sensible defaults to
-\emph{emphasize} text, \alert{accent} parts
-or show \textbf{bold} results.\end{verbatim}
 
-  \begin{center}becomes\end{center}
-
-  The theme provides sensible defaults to \emph{emphasize} text,
-  \alert{accent} parts or show \textbf{bold} results.
+\begin{frame}[fragile]{Algoritmos Genéticos}
+    \begin{itemize}
+    \item Surgen en 1962
+    \item John Henry Holland (1929-2015)
+    \item Interés en la evolución per sé
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Font feature test}
-  \begin{itemize}
-    \item Regular
-    \item \textit{Italic}
-    \item \textsc{SmallCaps}
-    \item \textbf{Bold}
-    \item \textbf{\textit{Bold Italic}}
-    \item \textbf{\textsc{Bold SmallCaps}}
-    \item \texttt{Monospace}
-    \item \texttt{\textit{Monospace Italic}}
-    \item \texttt{\textbf{Monospace Bold}}
-    \item \texttt{\textbf{\textit{Monospace Bold Italic}}}
-  \end{itemize}
+
+
+
+\begin{frame}[fragile]{Ciclo Evolutivo}
+    \begin{figure}
+    \includegraphics[scale=.34]{imgs/ciclo_evolucion_2_no_background}
+      \caption*{\url{http://www.jade-cheng.com/au/coalhmm/optimization/}}
+    \end{figure}
 \end{frame}
 
-\begin{frame}{Lists}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.33\textwidth}
-      Items
-      \begin{itemize}
-        \item Milk \item Eggs \item Potatos
-      \end{itemize}
 
-    \column{0.33\textwidth}
-      Enumerations
-      \begin{enumerate}
-        \item First, \item Second and \item Last.
-      \end{enumerate}
 
-    \column{0.33\textwidth}
-      Descriptions
-      \begin{description}
-        \item[PowerPoint] Meeh. \item[Beamer] Yeeeha.
-      \end{description}
-  \end{columns}
-\end{frame}
-\begin{frame}{Animation}
-  \begin{itemize}[<+- | alert@+>]
-    \item \alert<4>{This is\only<4>{ really} important}
-    \item Now this
-    \item And now this
-  \end{itemize}
-\end{frame}
-\begin{frame}{Figures}
-  \begin{figure}
-    \newcounter{density}
-    \setcounter{density}{20}
-    \begin{tikzpicture}
-      \def\couleur{alerted text.fg}
-      \path[coordinate] (0,0)  coordinate(A)
-                  ++( 90:5cm) coordinate(B)
-                  ++(0:5cm) coordinate(C)
-                  ++(-90:5cm) coordinate(D);
-      \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- cycle;
-      \foreach \x in {1,...,40}{%
-          \pgfmathsetcounter{density}{\thedensity+20}
-          \setcounter{density}{\thedensity}
-          \path[coordinate] coordinate(X) at (A){};
-          \path[coordinate] (A) -- (B) coordinate[pos=.10](A)
-                              -- (C) coordinate[pos=.10](B)
-                              -- (D) coordinate[pos=.10](C)
-                              -- (X) coordinate[pos=.10](D);
-          \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) -- cycle;
-      }
-    \end{tikzpicture}
-    \caption{Rotated square from
-    \href{http://www.texample.net/tikz/examples/rotated-polygons/}{texample.net}.}
-  \end{figure}
-\end{frame}
-\begin{frame}{Tables}
+\begin{frame}{Evolución de los Algoritmos Genéticos}
   \begin{table}
-    \caption{Largest cities in the world (source: Wikipedia)}
-    \begin{tabular}{lr}
-      \toprule
-      City & Population\\
-      \midrule
-      Mexico City & 20,116,842\\
-      Shanghai & 19,210,000\\
-      Peking & 15,796,450\\
-      Istanbul & 14,160,467\\
-      \bottomrule
+    \renewcommand\arraystretch{1.4}\arrayrulecolor{lightgray}
+    \begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{8cm}}
+      \addlinespace[1.5ex]
+      1962 & Nacen los Algoritmos Genéticos de mano de Holand\\
+      1970's & Tesis de Bagley, Cavicchio y Frantz. Elitismo, mutación adaptativa y multicruce\\
+      1975 & ``Adaptation in Natural and Artificial Systems'' (Holland)\\
+           &  Teorema de los esquemas\\
+           &  Tesis de Kenneth De Jong \\
+      1980's & Aplicación en problemas de ingeniería y optimización\\
+      1987 & ``Genetic Algorithms in Search, Optimization, and Machine Learning'' (Goldberg)\\
+      1990's & Desaparición del operador de inversión y aplicación en problemas de ámbito real\\
     \end{tabular}
   \end{table}
 \end{frame}
-\begin{frame}{Blocks}
-  Three different block environments are pre-defined and may be styled with an
-  optional background color.
 
-  \begin{columns}[T,onlytextwidth]
-    \column{0.5\textwidth}
-      \begin{block}{Default}
-        Block content.
-      \end{block}
-
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-    \column{0.5\textwidth}
-
-      \metroset{block=fill}
-
-      \begin{block}{Default}
-        Block content.
-      \end{block}
-
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-  \end{columns}
-\end{frame}
-\begin{frame}{Math}
-  \begin{equation*}
-    e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
-  \end{equation*}
-\end{frame}
-\begin{frame}{Line plots}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mlineplot,
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-        \addplot {sin(deg(x))};
-        \addplot+[samples=100] {sin(deg(2*x))};
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-\begin{frame}{Bar charts}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mbarplot,
-        xlabel={Foo},
-        ylabel={Bar},
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
-      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
-      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
-
-      \legend{lorem, ipsum, dolor}
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-\begin{frame}{Quotes}
-  \begin{quote}
-    Veni, Vidi, Vici
-  \end{quote}
+\begin{frame}{Evolución de la comunidad de los Algoritmos Genéticos}
+  \begin{table}
+    \renewcommand\arraystretch{1.4}\arrayrulecolor{lightgray}
+    \begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{8cm}}
+      \addlinespace[1.5ex]
+      1962 & Desarrollo en la Universidad de Míchigan\\
+      1970's & Empiezan a surgir publicaciones: Bethke, Booker, Golberg\\
+      1976 & Conferencia sobre Sistemas Adaptativos (Ann Arbor)\\
+      1981 & ``An Interisciplinary Workshop in Adaptive Systems '' (Míchigan)\\
+      1985 & Primera Conferencia Internacional de Algoritmos Genéticos (Pittsburgh)\\
+      1989 & Creación de la Sociedad Internacional de Algoritmos Genéticos (ISGA)\\
+    \end{tabular}
+  \end{table}
 \end{frame}
 
-{%
-\setbeamertemplate{frame footer}{My custom footer}
-\begin{frame}[fragile]{Frame footer}
-    \themename defines a custom beamer template to add a text to the footer. It can be set via
-    \begin{verbatim}\setbeamertemplate{frame footer}{My custom footer}\end{verbatim}
-\end{frame}
-}
 
-\begin{frame}{References}
-  Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
-\end{frame}
 
 \section{Estrategias evolutivas}
 
@@ -346,42 +214,41 @@ or show \textbf{bold} results.\end{verbatim}
 
 \section{Programación genética}
 
-\begin{frame}{Summary}
+\begin{frame}{Programación genética}
 
-  Get the source of this theme and the demo presentation from
+ \begin{itemize}\itemsep2pt
+  \item Richard Forsyth demuestra el éxito en la evolución de pequeños programas
+  \item En 1988, John Koza patenta un algoritmo genético orientado a la evolución de programas
+  \item John Koza se considera el mayor exponente de la programación genética
+  \item Se aplica a problemas sencillos por el alto coste computacional
+  \end{itemize}
+  
+\end{frame}
 
-  \begin{center}\url{github.com/matze/mtheme}\end{center}
+\begin{frame}{Algoritmo planteado}
 
-  The theme \emph{itself} is licensed under a
-  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
-  Attribution-ShareAlike 4.0 International License}.
+ \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{imgs/FlowchartGP.PNG}
+  \label{fig:dfd:1}
+\end{figure}
+  
+\end{frame}
 
-  \begin{center}\ccbysa\end{center}
 
+\begin{frame}{Conclusión}
+
+ \begin{itemize}\itemsep2pt
+  \item Estrategias muy parecidas debido a la falta de comunicación
+  \item Gran importancia en la ciencia de la computación pese al escepticismo inicial
+  \item El aumento de los recursos y la capacidad de cómputo en el futuro ampliará el abanico de aplicaciones posibles.
+  \end{itemize}
+
+  
 \end{frame}
 
 \begin{frame}[standout]
-  Questions?
-\end{frame}
-
-\appendix
-
-\begin{frame}[fragile]{Backup slides}
-  Sometimes, it is useful to add slides at the end of your presentation to
-  refer to during audience questions.
-
-  The best way to do this is to include the \verb|appendixnumberbeamer|
-  package in your preamble and call \verb|\appendix| before your backup slides.
-
-  \themename will automatically turn off slide numbering and progress bars for
-  slides in the appendix.
-\end{frame}
-
-\begin{frame}[allowframebreaks]{References}
-
-  \bibliography{bibliography}
-  \bibliographystyle{abbrv}
-
+  ¿Preguntas?
 \end{frame}
 
 \end{document}
